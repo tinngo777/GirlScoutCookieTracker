@@ -54,7 +54,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <StrictMode>
-      <RouterProvider router={router} basename="/GirlScoutCookieTracker"/>
+      <RouterProvider router={router}/>
     </StrictMode>
   </AuthProvider>
   
