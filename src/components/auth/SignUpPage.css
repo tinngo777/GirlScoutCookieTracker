@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+body{
+    margin:0px;
+}
+
+.body{
+    margin: 0px;
+    display: flex;
+}
+
+.Box{
+    height: 100vh;
+}
+
+#LeftBox{
+    width: 32%;
+    background-image: radial-gradient(#7da072, #617d59 );
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#RightBox{
+    width: 68%;
+    background-color: #a7bf9f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LeftCookieLogo{
+    width: 55%;
+}
+
+#SigninBox{
+    background-color: #ffffff;
+    width: 60%;
+    height: 72%;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#SigninCookieLogo{
+    width: 10%
+}
+
+#SigninLabel {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7em;
+}
+
+#SigninInnerBox {
+    width: 42%;
+    height: 57%;
+    
+}
+
+#SigninInnerBox input{
+    width: 100%;
+    height: 10%;
+    
+}
+
+#CheckBoxDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+    
+}
+
+#CheckBoxDiv input{
+    width: 10%;
+    padding: 0px;
+    border: 0px;
+    
+    
+}
+
+#CheckBoxDiv label{
+    width: 80%;
+}
+
+
+#SigninButton {
+    width: 100%;
+    height: 10%;
+    background-color: #1366d9;
+    padding: 0px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#SigninButton:hover{
+    background-color: #5190e9;
+}
+
+#SigninButton:active{
+    background-color: #043e8e;
+}
+
