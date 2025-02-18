@@ -18,7 +18,7 @@ export const SignUpPage = () => {
 
     useEffect(() => {
         if (!loading && user && !redirecting) {
-            navigate("/dashboard");
+            navigate("/GirlScoutCookieTracker/dashboard");
         }
     }, [user, loading, navigate, redirecting]);
 

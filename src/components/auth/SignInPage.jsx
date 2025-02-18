@@ -13,7 +13,7 @@ export const SignInPage = () => {
     const signIn = async () => {
         try{
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/dashboard");
+            navigate("/GirlScoutCookieTracker/dashboard");
         }
         catch (err){
             console.error(err)

@@ -15,37 +15,37 @@ import { AwaitJoin } from './components/awaitJoin/AwaitJoin'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/GirlScoutCookieTracker/',
     element: <SignUpPage />,
     errorElement: <NotFoundPage />
   },
   {
-    path: '/signin',
+    path: '/GirlScoutCookieTracker/signin',
     element: <SignInPage/>,
   },
   {
-    path: '/troop',
+    path: '/GirlScoutCookieTracker/troop',
     element: <PrivateRoute />,
-    children: [{ path: "/troop", element: <TroopPage /> }],
+    children: [{ path: "/GirlScoutCookieTracker/troop", element: <TroopPage /> }],
   },
   {
-    path: '/createTroop',
+    path: '/GirlScoutCookieTracker/createTroop',
     element: <PrivateRoute />,
-    children: [{ path: "/createTroop", element: <CreateTroopPage /> }],
+    children: [{ path: "/GirlScoutCookieTracker/createTroop", element: <CreateTroopPage /> }],
   },
   {
-    path: '/joinTroop',
+    path: '/GirlScoutCookieTracker/joinTroop',
     element: <PrivateRoute />,
-    children: [{ path: "/joinTroop", element: <JoinTroopPage /> }],
+    children: [{ path: "/GirlScoutCookieTracker/joinTroop", element: <JoinTroopPage /> }],
   },
   {
-    path: '/awaitJoin',
+    path: '/GirlScoutCookieTracker/awaitJoin',
     element: <AwaitJoin/>,
   },
   {
-    path: '/dashboard',
+    path: '/GirlScoutCookieTracker/dashboard',
     element: <PrivateRoute />,
-    children: [{ path: "/dashboard", element: <Dashboard /> }],
+    children: [{ path: "/GirlScoutCookieTracker/dashboard", element: <Dashboard /> }],
   },
   
   
