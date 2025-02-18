@@ -20,7 +20,7 @@ export const JoinTroopPage = () => {
                 RequestCompletion: false,
             });
 
-            navigate("/awaitJoin");
+            navigate("/GirlScoutCookieTracker/awaitJoin");
         }
         catch (err){
             console.error(err)

@@ -55,7 +55,7 @@ export const SignInPage = () => {
                     </div>
                     
                     <br></br><br></br>
-                    <Link to="/">Don't have an account?</Link>
+                    <Link to="/GirlScoutCookieTracker/">Don't have an account?</Link>
                     <button id="SigninButton" onClick={signIn}>Sign In</button>
     
                 </div>

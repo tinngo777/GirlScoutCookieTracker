@@ -6,7 +6,7 @@ export const PrivateRoute = () => {
 
   if (loading) return <p>Loading...</p>;
 
-  return user ? <Outlet /> : <Navigate to="/" />;
+  return user ? <Outlet /> : <Navigate to="/GirlScoutCookieTracker/" />;
 };
 
 

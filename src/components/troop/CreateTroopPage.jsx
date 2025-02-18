@@ -38,7 +38,7 @@ export const CreateTroopPage = () => {
                 TroopNumber: TroopNumber
             });
 
-            navigate("/dashboard");
+            navigate("/GirlScoutCookieTracker/dashboard");
         }
         catch (err){
             console.error(err)

@@ -4,7 +4,7 @@ export const NotFoundPage = () => {
     return(
         <>
             <div>404 Page Not Found</div>
-            <Link to="/">Home</Link>
+            <Link to="/GirlScoutCookieTracker/">Home</Link>
         </>
     );
 }

@@ -13,7 +13,7 @@ export const Dashboard = () => {
 
     const logOut = async () => {
         try {
-            await navigate("/");
+            await navigate("/GirlScoutCookieTracker/");
             await signOut(auth);
         }catch (err){
             console.error(err);
@@ -29,14 +29,14 @@ export const Dashboard = () => {
                         <p>GS Manager</p>
                     </div>
                     
-                    <Link to="/dashboard">Dashboard</Link>
-                    <Link to="/dashboard">Inventory</Link>
-                    <Link to="/dashboard">Reports</Link>
-                    <Link to="/dashboard">Customers</Link>
-                    <Link to="/dashboard">Messages</Link>
-                    <Link to="/dashboard">Orders</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Dashboard</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Inventory</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Reports</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Customers</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Messages</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Orders</Link>
                     <br></br>
-                    <Link to="/dashboard">Settings</Link>
+                    <Link to="/GirlScoutCookieTracker/dashboard">Settings</Link>
                     <button onClick={logOut}>Log Out</button>
 
                 </div>
