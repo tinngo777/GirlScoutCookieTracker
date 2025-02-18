@@ -36,7 +36,7 @@ export const SignUpPage = () => {
                 createdAt: new Date().toISOString(),
             });
                 
-            navigate("/troop");
+            navigate("/GirlScoutCookieTracker/troop");
         }
         catch (err){
             console.error(err)
