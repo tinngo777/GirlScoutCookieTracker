@@ -83,7 +83,7 @@ export const SignUpPage = () => {
                     </div>
                     
                     <br></br><br></br>
-                    <Link to="/signin">Already have an account?</Link>
+                    <Link to="/GirlScoutCookieTracker/signin">Already have an account?</Link>
                     <button id="SigninButton" onClick={signUp}>Sign Up</button>
     
                 </div>
