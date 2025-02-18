@@ -4,9 +4,13 @@ import { useAuth } from "../auth/AuthContext";
 export const PrivateRoute = () => {
   const { user, loading } = useAuth();
 
-  if (loading) return <p>Loading...</p>;
+    if (loading) return <p>Loading...</p>;
+    
+    if (!user) {
+        return <Navigate to="/GirlScoutCookieTracker/" replace />;
+    }
 
-  return user ? <Outlet /> : <Navigate to="/GirlScoutCookieTracker/" />;
+    return <Outlet />;
 };
 
 
