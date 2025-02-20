@@ -33,7 +33,7 @@ export const SignUpPage = () => {
                 Name: name,
                 TroopNumber: null,
                 ScoutName: "",
-                createdAt: new Date().toISOString(),
+                CreatedAt: new Date().toISOString(),
             });
                 
             navigate("/GirlScoutCookieTracker/troop");

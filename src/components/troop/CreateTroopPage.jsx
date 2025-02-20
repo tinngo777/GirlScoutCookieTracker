@@ -24,6 +24,9 @@ export const CreateTroopPage = () => {
                 
             const memberSubcollectionRef = collection(mainDocumentRef, "Members");
             const requestSubcollectionRef = collection(mainDocumentRef, "MemberRequests");
+            const inventorySubcollectionRef = collection(mainDocumentRef, "Inventory");
+            const outstandingOrdersSubcollectionRef = collection(mainDocumentRef, "OutstandingOrders");
+            const completedOrdersSubcollectionRef = collection(mainDocumentRef, "CompletedOrders"); 
 
             await setDoc(doc(memberSubcollectionRef, user.uid), {
                 Role: "Leader",
@@ -32,6 +35,39 @@ export const CreateTroopPage = () => {
             await setDoc(doc(requestSubcollectionRef, "PlaceholderRequest"), {
                 UserID: null,
                 RequestCompletion: true,
+            });
+
+            await setDoc(doc(inventorySubcollectionRef, "Cookies"), {
+                Adventurefuls: 0,
+                CaramelChocolateChip: 0,
+                CarameldeLites: 0,
+                Samoas: 0,
+                PeanutButterSandwhich: 0,
+                Dosidos: 0,
+                GirlScoutSmores: 0,
+                Lemonades: 0,
+                LemonUps: 0,
+                PeanutButterPatties: 0,
+                Tagalongs: 0,
+                ThinMints: 0,
+                ToastYays: 0,
+                ToffeeTastic: 0,
+                Trefoils: 0,
+            });
+
+            await setDoc(doc(outstandingOrdersSubcollectionRef, "PlaceholderOutstandingOrder"), {
+                ParentName: "placeholder",
+                OrderedBy: 'placeholder',
+                OrderContents: 'placeholder',
+                OrderDate: '1/1/00'
+            });
+
+            await setDoc(doc(completedOrdersSubcollectionRef, "PlaceholderCompletedOrder"), {
+                ParentName: "placeholder",
+                OrderedBy: 'placeholder',
+                OrderContents: 'placeholder',
+                OrderData: '1/1/00',
+                CompletionDate: '1/1/00',
             });
 
             await updateDoc(doc(db, "Users", user.uid),{
