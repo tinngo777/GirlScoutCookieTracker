@@ -1,15 +1,36 @@
-import "./Dashboard.css";
+import "./DashboardPage.css";
+import 'boxicons'
 import Cookie_Logo from '../../assets/Cookie_Logo.png'
+import { useRef, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import { auth, db } from "../../config/firebase";
+import { getDoc, collection, doc } from "firebase/firestore"
 import { signOut} from "firebase/auth";
 import { useAuth } from "../auth/AuthContext";
 
-export const Dashboard = () => {
+import { Dashboard } from "./Dashboard/Dashboard";
+import { Inventory } from "./Inventory/Inventory";
+import { Reports } from "./Reports/Reports";
+import { Customers} from "./Customers/Customers";
+import { Messages } from "./Messages/Messages";
+import { Orders } from "./Orders/Orders";
+import { Settings } from "./Settings/Settings";
+
+export const DashboardPage = () => {
+    
     const navigate = useNavigate();
     const { user, loading } = useAuth();
-    
+    const [UserData, SetUserData] = useState(null);
+    const [NavToggleIsActive, setNavToggleIsActive] = useState(true);
+
+    //Page visibilities
+    const [ActiveTab, setActiveTab] = useState("Dashboard");
+
     if (loading) return <p>Loading...</p>;
+
+    const NavToggle = () => {
+        setNavToggleIsActive(!NavToggleIsActive);
+    }
 
     const logOut = async () => {
         try {
@@ -20,40 +41,158 @@ export const Dashboard = () => {
         }
     }
 
+    const InactiveTab = () => {
+
+    }
+
+    useEffect(() => {
+        const getUserInfo = async () => {
+            try{
+                const UserDocRef = doc(db, "Users", user.uid);
+                const UserDoc = await getDoc(UserDocRef);
+                if(UserDoc.exists()){
+                    console.log("exisits");
+                    SetUserData(UserDoc.data());
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getUserInfo();
+    }, []);
+
+
+
     return(
         <>
             <div id="MainContainer">
-                <div id="NavigationTab">
+                <div className={`NavigationSidebar ${NavToggleIsActive ? 'active' : 'inactive'}`}>
+                    
                     <div id="NavHeader">
-                        <img src={Cookie_Logo} id="CookieLogo"/>
-                        <p>GS Manager</p>
+                        <div id="Logo" style={NavToggleIsActive ? {opacity: '1'} : {opacity: '0'}}>
+                            <img src={Cookie_Logo} id="CookieLogo"/>
+                            <span>GS Manager</span>
+                        </div>  
+                        <box-icon name='menu' id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}></box-icon> 
+                    </div>
+
+                    <hr></hr>
+                    
+                    <div id="User">
+                        <box-icon name='user-circle' id="UserIcon" size="md"></box-icon>
+                        
+                        <div>
+                            <p id="Username"><b>{`${UserData ? UserData.Name : "Username"}`}</b></p>
+                            <p id="TroopRole">{`${UserData ? UserData.TroopRole : "TroopRole"}`}</p>
+                        </div>
+                    
                     </div>
                     
-                    <Link to="/GirlScoutCookieTracker/dashboard">Dashboard</Link>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Inventory</Link>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Reports</Link>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Customers</Link>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Messages</Link>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Orders</Link>
-                    <br></br>
-                    <Link to="/GirlScoutCookieTracker/dashboard">Settings</Link>
-                    <button onClick={logOut}>Log Out</button>
+                    <hr></hr>
+                    
+                    <ul>
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Dashboard" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Dashboard");
+                            }}>
+                                <box-icon name='grid-alt'/>
+                                <span className="NavItem">Dashboard</span>
+                            </Link>
+                            <span className="tooltip">Dashboard</span>
+                        </li>
+                        
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Inventory" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Inventory");
+                            }}>
+                                <box-icon name='package' className={"icon-styles"} />
+                                <span className="NavItem">Inventory</span>
+                            </Link>
+                            <span className="tooltip">Inventory</span>
+                        </li>
 
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Reports" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Reports");
+                            }}>
+                                <box-icon name='paperclip' className={"icon-styles"}/>
+                                <span className="NavItem" >Reports</span>
+                            </Link>
+                            <span className="tooltip" >Reports</span>
+                        </li>
+
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Customers" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Customers");
+                            }}>
+                                <box-icon name='body' className={"icon-styles"}/>
+                                <span className="NavItem" >Customers</span>
+                            </Link>
+                            <span className="tooltip" >Customers</span>
+                        </li>
+
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Messages" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Messages");
+                            }}>
+                                <box-icon name='message-dots' className={"icon-styles"}/>
+                                <span className="NavItem" >Messages</span>
+                            </Link>
+                            <span className="tooltip" >Messages</span>
+                        </li>
+
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Orders" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Orders");
+                            }}>
+                                <box-icon name='food-menu' className={"icon-styles"}/>
+                                <span className="NavItem" >Orders</span>
+                            </Link>
+                            <span className="tooltip" >Orders</span>
+                        </li>
+
+                        <li>
+                            <Link className={`link-style ${ActiveTab=="Settings" ? "active" : ""}`} onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTab("Settings");
+                            }}>
+                                <box-icon name='cog' className={"icon-styles"}/>
+                                <span className="NavItem" >Settings</span>
+                            </Link>
+                            <span className="tooltip" >Settings</span>
+                        </li>
+                        <hr></hr>
+                        <li>
+                            <Link className={"link-styles"} onClick={(e) => {
+                                e.preventDefault();
+                                logOut();
+                            }}>
+                                <box-icon name='log-out' className={"icon-styles"}/>
+                                <span className="NavItem" >Logout</span>
+                            </Link>
+                            <span className="tooltip" >Logout</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div id="RightContainer">
-                    <div id="TitleBox">
-                        <p> {user.email} Dashboard</p>
-                    </div>
-                    <div id="OverviewContainer">
-                        <div id="SalesOverview">
-                            Sales Overview
-                        </div>
-                        <div id="PurchaseOverview">
-                            Purchase Overview
-                        </div>
-                    </div>
+                <div className = {`RightContainer ${NavToggleIsActive ? 'active' : 'inactive'}`}>
+                    
+                    {ActiveTab === "Dashboard" && <Dashboard/>} 
+                    {ActiveTab === "Inventory" && <Inventory/>} 
+                    {ActiveTab === "Reports" && <Reports/>} 
+                    {ActiveTab === "Customers" && <Customers/>} 
+                    {ActiveTab === "Messages" && <Messages/>} 
+                    {ActiveTab === "Orders" && <Orders/>} 
+                    {ActiveTab === "Settings" && <Settings/>} 
                 </div>
+                
                 
             </div>
         </>

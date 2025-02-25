@@ -1,0 +1,7 @@
+.SettingsList li{
+    list-style-type: none;
+    background-color: white;
+    height: 50px;
+    margin: 0.8rem auto;
+    border-radius: 0.8rem;
+}

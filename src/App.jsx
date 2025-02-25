@@ -3,15 +3,18 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import { AuthProvider } from './components/auth/AuthContext'
 
+//import * as Page from  "./components"
 import { PrivateRoute } from "./components/privateRoute/PrivateRoute"
 import { SignUpPage } from "./components/auth/SignUpPage"
-import { Dashboard } from './components/dashboard/DashboardPage'
+import { DashboardPage } from './components/dashboard/DashboardPage'
 import { SignInPage } from "./components/auth/SignInPage"
 import { NotFoundPage } from './components/notFound/NotFoundPage'
 import { TroopPage } from './components/troop/TroopPage'
 import { CreateTroopPage } from './components/troop/CreateTroopPage'
 import { JoinTroopPage } from './components/troop/JoinTroopPage'
 import { AwaitJoin } from './components/awaitJoin/AwaitJoin'
+
+
 
 const router = createBrowserRouter([
   {
@@ -45,10 +48,8 @@ const router = createBrowserRouter([
   {
     path: '/GirlScoutCookieTracker/dashboard',
     element: <PrivateRoute />,
-    children: [{ path: "/GirlScoutCookieTracker/dashboard", element: <Dashboard /> }],
+    children: [{ path: "/GirlScoutCookieTracker/dashboard", element: <DashboardPage /> }],
   },
-  
-  
 ]);
 
 createRoot(document.getElementById('root')).render(

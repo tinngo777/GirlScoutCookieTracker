@@ -32,6 +32,7 @@ export const SignUpPage = () => {
                 UserEmail: newUser.email,
                 Name: name,
                 TroopNumber: null,
+                TroopRole: null,
                 ScoutName: "",
                 CreatedAt: new Date().toISOString(),
             });

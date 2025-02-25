@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;   
+}
+
+body{
+    background-color: #a7bf9f;
+}
+
+.NavigationSidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    padding: .4rem .8rem;
+    transition: all .5s ease;
+    border-radius: 0 .8em .8em 0;
+    
+}
+
+.NavigationSidebar.active{
+    width: 230px;
+ }
+
+.NavigationSidebar.inactive{
+   width: 60px;
+}
+
+.RightContainer.active{
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+#NavToggle {
+    position: absolute;
+    top: .8rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    
+}
+
+#NavHeader{
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+#Logo{
+    display: flex;
+    height: 50px;
+    width: 100;
+    align-items: center;
+    pointer-events: none;
+    font-size: 1.3rem;
+}
+
+#CookieLogo{
+    width: 50px;
+    padding: 5px;
+}
+
+#User {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#UserIcon{
+    min-width: 36px;
+}
+
+#User p{
+    margin-left: 1rem;
+}
+
+.NavigationSidebar.active #User p{
+    opacity: 1;
+}
+
+.NavigationSidebar.inactive #User p{
+    opacity: 0;
+}
+
+.NavigationSidebar.active .NavItem{
+    opacity: 1;
+}
+
+.NavigationSidebar.inactive .NavItem{
+    opacity: 0;
+}
+
+
+.NavigationSidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 95%;
+    margin: 0.8rem auto;
+    line-height: 40px;
+    border-radius: 0.8rem;
+}
+
+.NavigationSidebar ul li span {
+    padding-left: 10px;
+}
+
+.NavigationSidebar ul li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.NavigationSidebar ul li a.active{
+    font-weight: bold;
+    color: green;
+}
+
+.NavigationSidebar ul li a box-icon{
+    min-width: 30px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    pointer-events: none;
+    
+}
+
+.NavigationSidebar ul li:hover{
+    background-color: #a7bf9f;
+}
+
+.NavigationSidebar ul li .tooltip{
+    position: absolute;
+    background-color: #6b7a66;
+    left: 50px;
+    top: 0%;
+    transform: translate(-50% -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+    color:#ffffff
+}
+
+.NavigationSidebar ul li:hover .tooltip{
+    opacity: 1;
+}
+
+.NavigationSidebar.active ul li .tooltip{
+    display: none;
+}
+
+.RightContainer{
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    transition: all 0.5s ease;
+    padding: 1rem;
+}
+
+.RightContainer.active{
+    left: 230px;
+    width: calc(100% - 230px);
+}
+
+.RightContainer.inactive{
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+
+
