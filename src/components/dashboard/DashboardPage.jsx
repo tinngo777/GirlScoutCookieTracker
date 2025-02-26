@@ -1,10 +1,9 @@
 import "./DashboardPage.css";
 import 'boxicons'
 import Cookie_Logo from '../../assets/Cookie_Logo.png'
-import { useRef, useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, db } from "../../config/firebase";
-import { getDoc, collection, doc } from "firebase/firestore"
 import { signOut} from "firebase/auth";
 import { useAuth } from "../auth/AuthContext";
 
@@ -19,8 +18,7 @@ import { Settings } from "./Settings/Settings";
 export const DashboardPage = () => {
     
     const navigate = useNavigate();
-    const { user, loading } = useAuth();
-    const [UserData, SetUserData] = useState(null);
+    const { user, loading, UserData } = useAuth();
     const [NavToggleIsActive, setNavToggleIsActive] = useState(true);
 
     //Page visibilities
@@ -40,29 +38,6 @@ export const DashboardPage = () => {
             console.error(err);
         }
     }
-
-    const InactiveTab = () => {
-
-    }
-
-    useEffect(() => {
-        const getUserInfo = async () => {
-            try{
-                const UserDocRef = doc(db, "Users", user.uid);
-                const UserDoc = await getDoc(UserDocRef);
-                if(UserDoc.exists()){
-                    console.log("exisits");
-                    SetUserData(UserDoc.data());
-                }
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getUserInfo();
-    }, []);
-
-
 
     return(
         <>

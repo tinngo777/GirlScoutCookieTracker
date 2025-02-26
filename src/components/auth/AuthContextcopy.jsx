@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import { auth, db } from "../../config/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../config/firebase"; // Import your Firebase auth instance
+
 import { onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 // Create a context
@@ -23,24 +23,16 @@ export const AuthProvider = ({ children }) => {
       });
 
     // Listen for authentication state changes
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      
-
-      if(currentUser){
-        const userRef = doc(db, "Users", currentUser.uid);
-        const docSnap = await getDoc(userRef);
-
-        setUserData(docSnap.data());
-        setLoading(false);
-      }
+      setLoading(false);
     });
 
     return () => unsubscribe(); // Cleanup listener on unmount
   }, []);
   
   return (
-    <AuthContext.Provider value={{ user, loading, UserData }}>
+    <AuthContext.Provider value={{ user, loading }}>
       {children}
     </AuthContext.Provider>
   );

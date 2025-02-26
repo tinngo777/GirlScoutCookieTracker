@@ -7,7 +7,7 @@ import { useNavigate} from "react-router-dom";
 
 export const JoinTroopPage = () => {
     const [TroopNumber, setTroopNumber] = useState("");
-    const { user, loading } = useAuth();
+    const { user, loading, UserData } = useAuth();
     const navigate = useNavigate();
 
     const joinTroop = async () => {
@@ -17,6 +17,7 @@ export const JoinTroopPage = () => {
 
             await setDoc(doc(requestSubcollectionRef, user.uid), {
                 UserID: user.uid,
+                Username: UserData.Name,
                 RequestCompletion: false,
             });
 

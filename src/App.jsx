@@ -3,28 +3,21 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import { AuthProvider } from './components/auth/AuthContext'
 
-//import * as Page from  "./components"
+//import * as Page from  "./components" maybe
 import { PrivateRoute } from "./components/privateRoute/PrivateRoute"
-import { SignUpPage } from "./components/auth/SignUpPage"
+import { AuthPage } from "./components/auth/AuthPage"
 import { DashboardPage } from './components/dashboard/DashboardPage'
-import { SignInPage } from "./components/auth/SignInPage"
 import { NotFoundPage } from './components/notFound/NotFoundPage'
 import { TroopPage } from './components/troop/TroopPage'
 import { CreateTroopPage } from './components/troop/CreateTroopPage'
 import { JoinTroopPage } from './components/troop/JoinTroopPage'
 import { AwaitJoin } from './components/awaitJoin/AwaitJoin'
 
-
-
 const router = createBrowserRouter([
   {
     path: '/GirlScoutCookieTracker/',
-    element: <SignUpPage />,
+    element: <AuthPage />,
     errorElement: <NotFoundPage />
-  },
-  {
-    path: '/GirlScoutCookieTracker/signin',
-    element: <SignInPage/>,
   },
   {
     path: '/GirlScoutCookieTracker/troop',

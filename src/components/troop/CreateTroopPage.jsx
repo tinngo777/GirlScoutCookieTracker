@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export const CreateTroopPage = () => {
     const [TroopNumber, setTroopNumber] = useState("");
     const [TroopRegion, setTroopRegion] = useState("");
-    const { user, loading } = useAuth();
+    const { user, loading, UserData } = useAuth();
     const navigate = useNavigate();
 
     const createTroop = async () => {
@@ -29,6 +29,7 @@ export const CreateTroopPage = () => {
             const completedOrdersSubcollectionRef = collection(mainDocumentRef, "CompletedOrders"); 
 
             await setDoc(doc(memberSubcollectionRef, user.uid), {
+                Name: UserData.Name,
                 Role: "Leader",
             });
 

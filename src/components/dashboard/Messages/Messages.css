@@ -1,7 +1,25 @@
 .MessagesList li{
+    display: flex;
+    justify-content: space-between;
     list-style-type: none;
     background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
     height: 50px;
+    line-height: 50px;
     margin: 0.8rem auto;
     border-radius: 0.8rem;
+    text-align: center;
 }
+
+.MessagesList li span{
+    padding-left: 10px;
+}
+
+.MessagesList li div box-icon{
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    
+}
+
