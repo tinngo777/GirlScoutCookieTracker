@@ -67,7 +67,7 @@ export const SignUpBox = ({ setHasAccount }) => {
                         
                     <br></br><br></br>
 
-                    <p id="SignUpBoxDontHaveAccount" onClick={() => setHasAccount(true)}>Don't have an account?</p>
+                    <p id="SignUpBoxDontHaveAccount" onClick={() => setHasAccount(true)}>Already have an account?</p>
 
                     <button id="SignUpBoxSignUpButton" onClick={signUp}>Sign Up</button>
             </div>
