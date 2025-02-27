@@ -37,6 +37,7 @@ export const Messages = () => {
         getMemberRequests();
     }, [UserData.TroopNumber, TableUpdate]);
 
+    
     const AcceptRequest = async (requestID, requesterName) => {
         //Update the members collection in the troop
         await setDoc(doc(MembersRef, requestID), {
@@ -54,7 +55,7 @@ export const Messages = () => {
         //delete request
         await deleteDoc(doc(MemberRequestsRef, requestID));
         
-        //recall getmember request to refresh page?
+        //recall getmember request to refresh page
         setTableUpdate("true");
 
         
@@ -62,6 +63,10 @@ export const Messages = () => {
 
     const DenyRequest = async () => {
         //delete request
+        await deleteDoc(doc(MemberRequestsRef, requestID));
+        
+        //recall getmember request to refresh page
+        setTableUpdate("true");
     }
 
 
@@ -71,7 +76,7 @@ export const Messages = () => {
                 <ul className="MessagesList">
                     {MemberRequests.map((request) => (
                         <li key={request.id}>
-                            <span>{request.Username} is asking to join the troop!</span>
+                            <span><b>{request.Username}</b> is asking to join the troop!</span>
                             <div>
                                 <box-icon type='solid' color="green" name='user-check' onClick={() => AcceptRequest(request.id, request.Username)}/>
                                 <box-icon type='solid' color="red" name='user-x' onClick={() => DenyRequest()}/>

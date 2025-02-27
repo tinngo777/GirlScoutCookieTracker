@@ -1,7 +1,36 @@
-.InventoryList li{
+.InventoryButtons{
+    display: flex;
+    justify-content: space-between;
     list-style-type: none;
     background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
     height: 50px;
+    line-height: 50px;
     margin: 0.8rem auto;
     border-radius: 0.8rem;
+    text-align: center;
 }
+
+
+.InventoryList li{
+    display: flex;
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
+    height: 50px;
+    line-height: 50px;
+    margin: 0.8rem auto;
+    border-radius: 0.8rem;
+    text-align: center;
+} 
+
+span{
+    padding-left: 10px;
+}
+
+.InventoryList img{
+    border-radius: 20px;
+    max-width: 40px;
+    max-height: 40px;
+    margin: 5px;
+} 
