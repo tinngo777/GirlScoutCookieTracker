@@ -1,42 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
-import Cookie_Logo from '../../assets/Cookie_Logo.png';
-
-import './AuthPage.css';
-
-import { SignUpBox } from "./SignUp/SignUpBox";
-import { SignInBox } from "./SignIn/SignInBox";
+import { DesktopAuthPage } from "./DesktopAuthPage";
+import { MobileAuthPage } from "./MobileAuthPage";
 
 export const AuthPage = () => {
     const { user, loading } = useAuth();
     const navigate = useNavigate();
-    
-    const [hasAccount, setHasAccount] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    return (
-        <>
-            <div className='AuthMainContainer'>
-                
-                <div className="AuthBox" id ="AuthLeftBox">
-                    <img src={Cookie_Logo} id="AuthLeftCookieLogo"/>
-                    <p><b>Order More, Worry Less</b></p>
-                    <p><b>Cookie Managment That Eases The Stress</b></p>
-                    
-                </div>
-        
-            <div className="AuthBox" id="AuthRightBox">
-                <div id="AuthWhiteBox">   
-                    {hasAccount ? (
-                        <SignInBox setHasAccount={setHasAccount}/> 
-                    ) : (
-                        <SignUpBox setHasAccount={setHasAccount}/>
-                    )}
-                    
-                </div>
-            </div>
-        </div>
-    </>
-    )
-}
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return isMobile ? <MobileAuthPage /> : <DesktopAuthPage />;
+};

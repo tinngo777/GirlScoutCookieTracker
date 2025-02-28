@@ -12,12 +12,22 @@ import { TroopPage } from './components/troop/TroopPage'
 import { CreateTroopPage } from './components/troop/CreateTroopPage'
 import { JoinTroopPage } from './components/troop/JoinTroopPage'
 import { AwaitJoin } from './components/awaitJoin/AwaitJoin'
+import { MobileLoginPage } from "./components/auth/SignIn/MobileLoginPage"; // Import Mobile Login
+import { MobileSignUpPage } from "./components/auth/SignUp/MobileSignUpPage"; // Import Mobile Signup
 
 const router = createBrowserRouter([
   {
     path: '/GirlScoutCookieTracker/',
     element: <AuthPage />,
     errorElement: <NotFoundPage />
+  },
+  {
+    path: '/mobile-login',
+    element: <MobileLoginPage />
+  },
+  {
+    path: '/mobile-signup',
+    element: <MobileSignUpPage />,
   },
   {
     path: '/GirlScoutCookieTracker/troop',

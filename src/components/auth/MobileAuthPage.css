@@ -1,0 +1,92 @@
+/* Ensure full height and background */
+.mobile-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #a7bf9f; /* Fallback color */
+    overflow: hidden;
+}
+
+/* Background Image */
+.mobile-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/Green.png"); /* Ensure path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Content inside */
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Fix Logo Size */
+.logo {
+    width: 100px;  /* Adjust this size */
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Title */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Subtitle (Order More, Worry Less) */
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+/* LOGIN Button - Gray Background & White Text */
+.login-btn {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #d3d3d3 !important; /* Light gray background */
+    color: white !important; /* White text */
+    border: 2px solid white !important; /* White border */
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background-color: #b0b0b0; /* Slightly darker gray on hover */
+}
+
+/* Signup Link - Bold White */
+.signup-link {
+    margin-top: 15px;
+    color: white; /* White color */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
