@@ -37,7 +37,6 @@ export const Inventory = () => {
                 const DocSnap = await getDoc(CookiesRef);
                 
                 setInventoryList(DocSnap.data());
-                console.log(DocSnap.data());
                 setTableUpdate(false);
             }catch (err){
                 console.error(err);
