@@ -9,7 +9,7 @@
     font-weight: bold;
 }
 
-.MobileSignUpBoxSubtit {
+.MobileSignUpBoxSubtitle {
     color: gray;
     font-size: 1rem;
     margin-bottom: 20px;
@@ -52,6 +52,14 @@
     cursor: pointer;
 }
 
+.MobileSignUpBoxSignUpButton:hover {
+    background-color: #5190e9;
+}
+
+.MobileSignUpBoxSignUpButton:active {
+    background-color: #043e8e;
+}
+
 .MobileSignUpBoxSignInDiv {
     display: flex;
     justify-content: space-between;
@@ -64,11 +72,20 @@
 }
 
 .MobileSignUpBoxSignInButton {
-    color: blue;
+    color: #1366d9;
     text-decoration: underline;
     cursor: pointer;
     transform: translateY(8px);
 }
+
+.MobileSignUpBoxSignInButton:hover {
+    color: #5190e9;
+}
+
+.MobileSignUpBoxSignInButton:active {
+    color: #043e8e;
+}
+
 
 .google-btn {
     width: 100%;
