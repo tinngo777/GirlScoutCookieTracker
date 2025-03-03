@@ -1,6 +1,6 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useNavigate} from 'react-router-dom'
 import { AuthProvider } from './components/auth/AuthContext'
 
 //import * as Page from  "./components" maybe
