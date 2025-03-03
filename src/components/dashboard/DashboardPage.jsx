@@ -1,7 +1,7 @@
 import "./DashboardPage.css";
 import 'boxicons'
 import Cookie_Logo from '../../assets/Cookie_Logo.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, db } from "../../config/firebase";
 import { signOut} from "firebase/auth";
