@@ -1,7 +1,7 @@
 import "./DashboardPage.css";
 import 'boxicons'
 import Cookie_Logo from '../../assets/Cookie_Logo.png'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, db } from "../../config/firebase";
 import { signOut} from "firebase/auth";
@@ -25,12 +25,6 @@ export const DashboardPage = () => {
     const [ActiveTab, setActiveTab] = useState("Dashboard");
 
     if (loading) return <p>Loading...</p>;
-
-    useEffect(() => {
-            if (!loading && user && !redirecting) {
-                navigate("/GirlScoutCookieTracker/dashboard");
-            }
-        }, [user, loading, navigate, redirecting]);
 
     const NavToggle = () => {
         setNavToggleIsActive(!NavToggleIsActive);
