@@ -1,50 +1,33 @@
-.mobile-signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #a7bf9f;
-}
-
-.mobile-signup-box {
-    width: 90%;
-    max-width: 400px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.logo {
+.MobileSignUpBoxLogo {
     width: 60px;
     margin-bottom: 10px;
 }
 
-h1 {
+.MobileSignUpBoxHeader {
     font-size: 1.5rem;
     color: black;
     font-weight: bold;
 }
 
-.subtitle {
+.MobileSignUpBoxSubtit {
     color: gray;
     font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.signup-form {
+.MobileSignUpBoxSignUpDiv {
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 90%;
 }
 
-label {
+.MobileSignUpBoxSignUpDiv label {
     font-size: 0.9rem;
     margin: 5px 0;
 }
 
-input {
+.MobileSignUpBoxSignUpDiv input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -52,13 +35,13 @@ input {
     border-radius: 5px;
 }
 
-.password-info {
+.MobileSignUpBoxPasswordInfo {
     font-size: 0.8rem;
     color: gray;
     margin-bottom: 10px;
 }
 
-.signup-btn {
+.MobileSignUpBoxSignUpButton {
     width: 100%;
     padding: 10px;
     background-color: #1366d9;
@@ -69,14 +52,22 @@ input {
     cursor: pointer;
 }
 
-.login-text {
+.MobileSignUpBoxSignInDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.MobileSignUpBoxSignInText {
     margin-top: 10px;
+    vertical-align: center;
     font-size: 0.9rem;
 }
 
-.login-text a {
+.MobileSignUpBoxSignInButton {
     color: blue;
-    text-decoration: none;
+    text-decoration: underline;
+    cursor: pointer;
+    transform: translateY(8px);
 }
 
 .google-btn {

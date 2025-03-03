@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth} from "../../../../config/firebase"
-
+import { auth } from "../../../../config/firebase"
 
 export const DesktopSignInBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
@@ -14,22 +13,22 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
     const { user, loading } = useAuth();
     const navigate = useNavigate();
     const [redirecting, setRedirecting] = useState(false);
-
+    
     useEffect(() => {
         if (!loading && user && !redirecting) {
             navigate("/GirlScoutCookieTracker/dashboard");
         }
     }, [user, loading, navigate, redirecting]);
-
+    
     const signIn = async () => {
-            try{
-                await signInWithEmailAndPassword(auth, email, password);
-                navigate("/GirlScoutCookieTracker/dashboard");
-            }
-            catch (err){
-                console.error(err)
-            }
-        };
+        try{
+            await signInWithEmailAndPassword(auth, email, password);
+            navigate("/GirlScoutCookieTracker/dashboard");
+        }
+        catch (err){
+            console.error(err)
+        }
+    };
 
     return(
         <>
@@ -37,7 +36,7 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
             <p id="SignInBoxLabel"><b>GSC MANAGMENT</b></p>
             <div id="SignInBoxInnerBox">
     
-                <p>  Sign In!</p>
+                <p>Sign In!</p>
     
                 <br></br>
                 

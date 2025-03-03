@@ -1,0 +1,62 @@
+/* Fix Logo Size */
+#SplashScreenBoxCookieLogo {
+    width: 100px;  /* Adjust this size */
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Title */
+.SplashScreenBoxHeader {
+    font-size: 2rem;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Subtitle (Order More, Worry Less) */
+.SplashScreenBoxSlogan {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+/* LOGIN Button - Gray Background & White Text */
+#SplashScreenBoxSignInButton {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #1366d9; /* Light gray background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#SplashScreenBoxSignInButton:hover {
+    background-color: #5190e9; 
+}
+
+#SplashScreenBoxSignInButton:active {
+    background-color: #043e8e; 
+}
+
+/* Signup Link */
+#SplashScreenBoxCreateAccountButton{
+    margin-top: 15px;
+    color: #1366d9; 
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#SplashScreenBoxCreateAccountButton:hover {
+    color: #5190e9;
+}
+
+#SplashScreenBoxCreateAccountButton:active {
+    color: #043e8e; 
+}

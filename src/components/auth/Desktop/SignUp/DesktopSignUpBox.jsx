@@ -11,7 +11,7 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-
+    
     const { user, loading } = useAuth();
     const navigate = useNavigate();
     const [redirecting, setRedirecting] = useState(false);
@@ -50,7 +50,8 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
             <p id="SignUpBoxLabel"><b>GSC MANAGMENT</b></p>
             <div id="SignUpBoxInnerBox">
         
-                    <p>  Sign Up Today!</p>
+                    <p>Sign Up Today!</p>
+                    <br></br>
         
                     <label>Email</label>
                     <input id="email" type="email" onChange={(e) => setEmail(e.target.value)}/>

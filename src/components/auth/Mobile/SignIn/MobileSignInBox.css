@@ -1,50 +1,33 @@
-.mobile-login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #a7bf9f;
-}
-
-.mobile-login-box {
-    width: 90%;
-    max-width: 400px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.logo {
+.MobileSignInBoxLogo {
     width: 60px;
     margin-bottom: 10px;
 }
 
-h1 {
+.MobileSignInBoxHeader {
     font-size: 1.5rem;
     color: black;
     font-weight: bold;
 }
 
-.subtitle {
+.MobileSignInBoxSubtitle {
     color: gray;
     font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.login-form {
+.MobileSignInBoxSignInDiv{
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 90%;
 }
 
-label {
+.MobileSignInBoxSignInDiv label {
     font-size: 0.9rem;
     margin: 5px 0;
 }
 
-input {
+.MobileSignInBoxSignInDiv input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -52,7 +35,7 @@ input {
     border-radius: 5px;
 }
 
-.remember-forgot {
+.MobileSignInBoxRememberForgot {
     display: flex;
     align-items: center; /* Aligns everything vertically */
     justify-content: space-between; /* Keeps "Forgot password?" on the right */
@@ -61,19 +44,19 @@ input {
     margin-bottom: 10px;
 }
 
-.remember-label {
+.MobileSignInBoxRememberLabel{
     display: flex;
     align-items: center; /* Ensures checkbox and text align properly */
     gap: 3px; /* Adds spacing between checkbox and label */
     white-space: nowrap; /* Prevents text from wrapping into two lines */
 }
 
-.remember-label input[type="checkbox"] {
+.MobileSignInBoxRememberLabel input[type="checkbox"] {
     vertical-align: middle; /* Ensures checkbox is in line with text */
     transform: translateY(5px); /* Fine-tune positioning */
 }
 
-.login-btn {
+#MobileSignInBoxSignInButton {
     width: 100%;
     padding: 10px;
     background-color: #1366d9;
@@ -83,18 +66,25 @@ input {
     font-size: 1rem;
     cursor: pointer;
 }
+.MobileSignInBoxSignUpDiv {
+    display: flex;
+    justify-content: space-between;
+}
 
-.signup-text {
+.MobileSignInBoxSignUpText {
     margin-top: 10px;
+    vertical-align: center;
     font-size: 0.9rem;
 }
 
-.signup-text a {
+.MobileSignInBoxSignUpButton {
     color: blue;
-    text-decoration: none;
+    text-decoration: underline;
+    cursor: pointer;
+    transform: translateY(8px);
 }
 
-.google-btn {
+.MobileSignInBoxGoogleButton {
     width: 100%;
     padding: 10px;
     background-color: white;
@@ -108,7 +98,8 @@ input {
     cursor: pointer;
     margin-top: 10px;
 }
-.google-logo {
+
+.MobileSignInBoxGoogleLogo {
     width: 20px;
     height: 20px;
     margin-right: 8px;
