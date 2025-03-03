@@ -49,7 +49,7 @@ export const MobileSignInBox = ({ setHasAccount }) => {
           <div className="MobileSignInBoxRememberForgot">
             <div className="MobileSignInBoxRememberLabel">
               <input type="checkbox" id="MobileSignInBoxRememberCheckbox" />
-              <label >Remember for 30 days</label>
+              <label >Remember Me</label>
             </div>
             <div className="MobileSignInBoxForgotPassword">
               <p>Forgot password?</p>
