@@ -48,12 +48,14 @@
 .MobileSignInBoxRememberLabel{
     display: flex;
     align-items: center; /* Ensures checkbox and text align properly */
+    background-color: blue;
     gap: 3px; /* Adds spacing between checkbox and label */
     flex-wrap: nowrap;
     white-space: nowrap; /* Prevents text from wrapping into two lines */
 }
 
-.MobileSignInBoxRememberForgot a {
+.MobileSignInBoxForgotPassword{
+    background-color: red;
     white-space: nowrap; /* Prevents "Forgot password?" from breaking into a new line */
 }
 
