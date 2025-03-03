@@ -39,6 +39,7 @@
     display: flex;
     align-items: center; /* Aligns everything vertically */
     justify-content: space-between; /* Keeps "Forgot password?" on the right */
+    flex-wrap: nowrap;
     width: 100%; /* Ensure full width */
     font-size: 0.8rem;
     margin-bottom: 10px;
@@ -53,7 +54,7 @@
 
 .MobileSignInBoxRememberLabel input[type="checkbox"] {
     vertical-align: middle; /* Ensures checkbox is in line with text */
-    transform: translateY(5px); /* Fine-tune positioning */
+    transform: translateY(6px); /* Fine-tune positioning */
 }
 
 #MobileSignInBoxSignInButton {

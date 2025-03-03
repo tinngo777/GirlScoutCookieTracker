@@ -48,13 +48,13 @@ export const MobileSignInBox = ({ setHasAccount }) => {
 
           <div className="MobileSignInBoxRememberForgot">
             <div className="MobileSignInBoxRememberLabel">
-              <input type="checkbox" id="remember" />
-              <label htmlFor="remember">Remember for 30 days</label>
+              <input type="checkbox" id="MobileSignInBoxRememberCheckbox" />
+              <label >Remember for 30 days</label>
             </div>
             <a href="#">Forgot password?</a>
           </div>
 
-          <button id="MobileSignInBoxSignInButton" onClick={signIn}>Sign in</button>
+          <button id="MobileSignInBoxSignInButton" onClick={signIn}>Sign In</button>
 
           <div className="MobileSignInBoxSignUpDiv">
             <p className="MobileSignInBoxSignUpText">
