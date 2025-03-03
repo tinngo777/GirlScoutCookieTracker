@@ -53,6 +53,10 @@
     white-space: nowrap; /* Prevents text from wrapping into two lines */
 }
 
+.MobileSignInBoxRememberForgot a {
+    white-space: nowrap; /* Prevents "Forgot password?" from breaking into a new line */
+}
+
 .MobileSignInBoxRememberLabel input[type="checkbox"] {
     vertical-align: middle; /* Ensures checkbox is in line with text */
     transform: translateY(6px); /* Fine-tune positioning */
