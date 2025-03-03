@@ -56,6 +56,10 @@
     font-size: 0.8rem;
 }
 
+#MobileSignInBoxRememberCheckbox{
+    padding: 0;
+}
+
 .MobileSignInBoxForgotPassword{
     font-size: 0.8rem;
     color: #1366d9;
