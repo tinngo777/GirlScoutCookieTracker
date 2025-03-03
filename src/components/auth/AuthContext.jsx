@@ -25,8 +25,7 @@ export const AuthProvider = ({ children }) => {
     // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      
-
+    
       if(currentUser){
         const userRef = doc(db, "Users", currentUser.uid);
         const docSnap = await getDoc(userRef);

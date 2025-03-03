@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookie Manager</title>
+    <script>
+      if (sessionStorage.getItem("redirected") !== "true") {
+        sessionStorage.setItem("redirected", "true");
+        window.location.replace("/GirlScoutCookieTracker");
+      } else {
+        sessionStorage.removeItem("redirected");
+      }
+    </script>
+    
   </head>
   <body>
     <div id="root"></div>

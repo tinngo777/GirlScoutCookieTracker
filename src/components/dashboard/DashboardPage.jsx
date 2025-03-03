@@ -26,6 +26,12 @@ export const DashboardPage = () => {
 
     if (loading) return <p>Loading...</p>;
 
+    useEffect(() => {
+            if (!loading && user && !redirecting) {
+                navigate("/GirlScoutCookieTracker/dashboard");
+            }
+        }, [user, loading, navigate, redirecting]);
+
     const NavToggle = () => {
         setNavToggleIsActive(!NavToggleIsActive);
     }

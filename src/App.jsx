@@ -13,7 +13,6 @@ import { CreateTroopPage } from './components/troop/CreateTroopPage'
 import { JoinTroopPage } from './components/troop/JoinTroopPage'
 import { AwaitJoin } from './components/awaitJoin/AwaitJoin'
 
-
 const router = createBrowserRouter([
   {
     path: '/GirlScoutCookieTracker/',
@@ -46,10 +45,25 @@ const router = createBrowserRouter([
   },
 ]);
 
+function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // You can check for specific conditions, for example, redirecting from "/GirlScoutCookieTracker/"
+    if (window.location.pathname === '/GirlScoutCookieTracker/dashboard') {
+      navigate('/GirlScoutCookieTracker/dashboard');
+    }
+  }, [navigate]);
+
+  return (
+    <RouterProvider router={router} basename="/GirlScoutCookieTracker" />
+  );
+}
+
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <StrictMode>
-      <RouterProvider router={router} basename="/GirlScoutCookieTracker"/>
+      <App />
     </StrictMode>
   </AuthProvider>
   
