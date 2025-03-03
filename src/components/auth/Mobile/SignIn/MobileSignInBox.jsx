@@ -1,4 +1,4 @@
-import "./MobilesignInBox.css"; // Load mobile-specific CSS
+import "./MobileSignInBox.css"; // Load mobile-specific CSS
 import Cookie_Logo from "../../../../assets/Cookie_Logo.png";
 import GoogleLogo from "../../../../assets/google-logo.png";
 
