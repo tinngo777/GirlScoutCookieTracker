@@ -3,7 +3,7 @@ import { SplashScreenBox } from "./SplashScreen/SplashScreenBox";
 import { MobileSignUpBox } from "./SignUp/MobileSignUpBox";
 import { MobileSignInBox } from "./SignIn/MobileSignInBox";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 export const MobileAuthPage = () => {
   const [hasAccount, setHasAccount] = useState(null);
