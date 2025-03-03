@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 export const MobileAuthPage = ({ setHasAccount }) => {
-  const [hasAccount, setHasAccount] = useState(false);
+  //const [hasAccount, setHasAccount] = useState(false);
 
   return (
     <div className="MobileAuthMainContainer">

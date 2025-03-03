@@ -107,7 +107,7 @@ export const Inventory = () => {
                         </li>
                         <li>
                             <img src={ToastYayImg}></img>
-                            <p><b>Toast-Yay!: </b>{InventoryList.ToastYay}</p>
+                            <p><b>Toast-Yay!: </b>{InventoryList.ToastYays}</p>
                         </li>
                         <li>
                             <img src={ToffeetasticImg}></img>
