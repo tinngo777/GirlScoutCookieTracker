@@ -1,6 +1,6 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, useNavigate} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import { AuthProvider } from './components/auth/AuthContext'
 
 //import * as Page from  "./components" maybe
@@ -45,25 +45,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    // You can check for specific conditions, for example, redirecting from "/GirlScoutCookieTracker/"
-    if (window.location.pathname === '/GirlScoutCookieTracker/dashboard') {
-      navigate('/GirlScoutCookieTracker/dashboard');
-    }
-  }, [navigate]);
-
-  return (
-    <RouterProvider router={router} basename="/GirlScoutCookieTracker" />
-  );
-}
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <StrictMode>
-      <App />
+      <RouterProvider router={router} basename="/GirlScoutCookieTracker" />
     </StrictMode>
   </AuthProvider>
   
