@@ -41,7 +41,6 @@
     justify-content: space-between; /* Keeps "Forgot password?" on the right */
     flex-wrap: nowrap;
     width: 100%; /* Ensure full width */
-    
     margin-bottom: 10px;
 }
 
