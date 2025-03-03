@@ -47,7 +47,7 @@ export const DashboardPage = () => {
                     <div id="NavHeader">
                         <div id="Logo" style={NavToggleIsActive ? {opacity: '1'} : {opacity: '0'}}>
                             <img src={Cookie_Logo} id="CookieLogo"/>
-                            <span>GS Manager</span>
+                            <span>GSC Manager</span>
                         </div>  
                         <box-icon name='menu' id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}></box-icon> 
                     </div>

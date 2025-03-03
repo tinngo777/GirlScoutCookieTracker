@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
-
-import { DesktopAuthPage } from "./DesktopAuthPage";
-import { MobileAuthPage } from "./MobileAuthPage";
+import { DesktopAuthPage } from "./Desktop/DesktopAuthPage";
+import { MobileAuthPage } from "./Mobile/MobileAuthPage";
 
 export const AuthPage = () => {
-    const { user, loading } = useAuth();
-    const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {

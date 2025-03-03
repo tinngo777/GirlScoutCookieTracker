@@ -1,13 +1,13 @@
-import "./SignUpBox.css"
-import Cookie_Logo from '../../../assets/Cookie_Logo.png';
+import "./DesktopSignUpBox.css"
+import Cookie_Logo from '../../../../assets/Cookie_Logo.png';
 import { useState, useEffect } from "react";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth, db } from "../../../config/firebase"
+import { auth, db } from "../../../../config/firebase"
 import { doc, setDoc} from 'firebase/firestore';
 
-export const SignUpBox = ({ setHasAccount }) => {
+export const DesktopSignUpBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -47,7 +47,7 @@ export const SignUpBox = ({ setHasAccount }) => {
     return(
         <>
             <img src={Cookie_Logo} id="SignUpBoxCookieLogo"/>
-            <p id="SignUpBoxLabel"><b>GS MANAGMENT</b></p>
+            <p id="SignUpBoxLabel"><b>GSC MANAGMENT</b></p>
             <div id="SignUpBoxInnerBox">
         
                     <p>  Sign Up Today!</p>

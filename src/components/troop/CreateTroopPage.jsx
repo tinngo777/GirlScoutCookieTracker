@@ -43,7 +43,7 @@ export const CreateTroopPage = () => {
                 CaramelChocolateChip: 0,
                 CarameldeLites: 0,
                 Samoas: 0,
-                PeanutButterSandwhich: 0,
+                PeanutButterSandwich: 0,
                 Dosidos: 0,
                 GirlScoutSmores: 0,
                 Lemonades: 0,

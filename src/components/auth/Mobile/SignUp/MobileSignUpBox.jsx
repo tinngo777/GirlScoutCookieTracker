@@ -1,10 +1,13 @@
 import React from "react";
 import "./MobileSignUpPage.css"; // Load mobile-specific CSS
 
-import Cookie_Logo from "../../../assets/Cookie_Logo.png";
-import GoogleLogo from "../../../assets/google-logo.png";
+import Cookie_Logo from "../../../../assets/Cookie_Logo.png";
+import GoogleLogo from "../../../../assets/google-logo.png";
 
-export const MobileSignUpPage = () => {
+export const MobileSignUpBox= () => {
+  
+  
+  
   return (
     <div className="mobile-signup-container">
       <div className="mobile-signup-box">

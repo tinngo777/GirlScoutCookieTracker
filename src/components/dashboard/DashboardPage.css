@@ -6,6 +6,7 @@
 }
 
 body{
+    background-image: url("../../assets/Cookie_Background.png");
     background-color: #a7bf9f;
 }
 
@@ -49,6 +50,10 @@ body{
 #NavHeader{
     margin-bottom: 10px;
     height: 50px;
+}
+
+#NavHeader span{
+    font-size: 1.2rem;
 }
 
 #Logo{
@@ -130,7 +135,15 @@ body{
     border-radius: 12px;
     line-height: 50px;
     pointer-events: none;
-    
+}
+
+.NavigationSidebar ul li a box-icon:hover .tooltip{
+    min-width: 30px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    pointer-events: none;
 }
 
 .NavigationSidebar ul li:hover{
@@ -149,11 +162,13 @@ body{
     line-height: 1.8rem;
     z-index: 20;
     opacity: 0;
+    visibility: hidden;
     color:#ffffff
 }
 
 .NavigationSidebar ul li:hover .tooltip{
     opacity: 1;
+    visibility: visible;
 }
 
 .NavigationSidebar.active ul li .tooltip{

@@ -1,10 +1,15 @@
 import React from "react";
 import "./MobileLoginPage.css"; // Load mobile-specific CSS
 
-import Cookie_Logo from "../../../assets/Cookie_Logo.png";
-import GoogleLogo from "../../../assets/google-logo.png";
+import Cookie_Logo from "../../../../assets/Cookie_Logo.png";
+import GoogleLogo from "../../../../assets/google-logo.png";
 
 export const MobileLoginPage = () => {
+  
+  
+  
+  
+  
   return (
     <div className="mobile-login-container">
       <div className="mobile-login-box">
@@ -30,13 +35,14 @@ export const MobileLoginPage = () => {
           <button className="login-btn">Sign in</button>
 
           <p className="signup-text">
-            Don't have an account? <a href="/mobile-signup">Sign up</a>
+            Don't have an account? <a href="/GirlScoutCookieTracker/mobile-signup">Sign up</a>
           </p>
 
           <button className="google-btn">
             <img src={GoogleLogo} alt="Google logo" className="google-logo" />
             Sign in with Google
           </button>
+
         </form>
       </div>
     </div>

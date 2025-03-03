@@ -13,6 +13,11 @@
     
 }
 
+#SignInBoxInnerBox p {
+    text-align: center;
+    
+}
+
 #SignInBoxInnerBox input{
     width: 100%;
     height: 10%;

@@ -1,13 +1,13 @@
-import "./SignInBox.css"
-import Cookie_Logo from '../../../assets/Cookie_Logo.png';
+import "./DesktopSignInBox.css"
+import Cookie_Logo from '../../../../assets/Cookie_Logo.png';
 import { useState, useEffect } from "react";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth} from "../../../config/firebase"
+import { auth} from "../../../../config/firebase"
 
 
-export const SignInBox = ({ setHasAccount }) => {
+export const DesktopSignInBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -34,11 +34,13 @@ export const SignInBox = ({ setHasAccount }) => {
     return(
         <>
             <img src={Cookie_Logo} id="SignInBoxCookieLogo"/>
-            <p id="SignInBoxLabel"><b>GS MANAGMENT</b></p>
+            <p id="SignInBoxLabel"><b>GSC MANAGMENT</b></p>
             <div id="SignInBoxInnerBox">
     
                 <p>  Sign In!</p>
     
+                <br></br>
+                
                 <label>Email</label>
                 <input id="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
     

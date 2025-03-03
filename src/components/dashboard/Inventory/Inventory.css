@@ -11,9 +11,14 @@
     text-align: center;
 }
 
+.InventoryList{
+    max-height: 88vh;
+    overflow: auto;
+}
 
 .InventoryList li{
     display: flex;
+    width: 98%;
     list-style-type: none;
     background-color: white;
     box-shadow: 4px 4px 4px #adb0ac;
@@ -34,3 +39,4 @@ span{
     max-height: 40px;
     margin: 5px;
 } 
+
