@@ -11,7 +11,7 @@ export const TroopPage = () => {
     const JoinTroop = () => {
         navigate("/joinTroop");
     }
-    
+
     return (
         <>
             <div id='TroopPageMainContainer'>
