@@ -18,14 +18,14 @@ export const MobileSignInBox = ({ setHasAccount }) => {
 	  
 	useEffect(() => {
 		if (!loading && user && !redirecting) {
-			navigate("/GirlScoutCookieTracker/dashboard");
+			navigate("/dashboard");
 		}
 	}, [user, loading, navigate, redirecting]);
     
  	const signIn = async () => {
         try{
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/GirlScoutCookieTracker/dashboard");
+            navigate("/dashboard");
 		}
         catch (err){
             console.error(err)

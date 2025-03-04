@@ -5,11 +5,11 @@ export const TroopPage = () => {
     const navigate = useNavigate();
     
     const CreateTroop = () => {
-        navigate("/GirlScoutCookieTracker/createTroop");
+        navigate("/createTroop");
     }
 
     const JoinTroop = () => {
-        navigate("/GirlScoutCookieTracker/joinTroop");
+        navigate("/joinTroop");
     }
     
     return (

@@ -17,12 +17,12 @@ createRoot(document.getElementById("root")).render(
     <StrictMode>
       <HashRouter>
         <Routes>
-          <Route path="/GirlScoutCookieTracker" element={<AuthPage />} />
-          <Route path="/GirlScoutCookieTracker/troop" element={<PrivateRoute><TroopPage /></PrivateRoute>} />
-          <Route path="/GirlScoutCookieTracker/createTroop" element={<PrivateRoute><CreateTroopPage /></PrivateRoute>} />
-          <Route path="/GirlScoutCookieTracker/joinTroop" element={<PrivateRoute><JoinTroopPage /></PrivateRoute>} />
-          <Route path="/GirlScoutCookieTracker/awaitJoin" element={<AwaitJoin />} />
-          <Route path="/GirlScoutCookieTracker/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+          <Route path="/" element={<AuthPage />} />
+          <Route path="/troop" element={<PrivateRoute><TroopPage /></PrivateRoute>} />
+          <Route path="/createTroop" element={<PrivateRoute><CreateTroopPage /></PrivateRoute>} />
+          <Route path="/joinTroop" element={<PrivateRoute><JoinTroopPage /></PrivateRoute>} />
+          <Route path="/awaitJoin" element={<AwaitJoin />} />
+          <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </HashRouter>

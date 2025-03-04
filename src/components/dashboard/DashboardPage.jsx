@@ -32,7 +32,7 @@ export const DashboardPage = () => {
 
     const logOut = async () => {
         try {
-            await navigate("/GirlScoutCookieTracker/");
+            await navigate("/");
             await signOut(auth);
         }catch (err){
             console.error(err);

@@ -20,7 +20,7 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
     
     useEffect(() => {
         if (!loading && user && !redirecting) {
-            navigate("/GirlScoutCookieTracker/dashboard");
+            navigate("/dashboard");
         }
     }, [user, loading, navigate, redirecting]);
 
@@ -39,7 +39,7 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
                     CreatedAt: new Date().toISOString(),
                 });
                     
-                navigate("/GirlScoutCookieTracker/troop");
+                navigate("/troop");
             }
             catch (err){
                 console.error(err)
