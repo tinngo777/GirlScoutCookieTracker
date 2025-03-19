@@ -25,7 +25,8 @@ export const Inventory = () => {
     if (loading) return <p>Loading...</p>;
 
     const [InventoryList, setInventoryList] = useState([]);
-    const [TableUpdate, setTableUpdate] = useState("false");
+    const [TableUpdate, setTableUpdate] = useState(false);
+    const [IsEditing, setIsEditing] = useState(false);
 
     const CookiesRef = doc(db, "Troops", `Troop#${UserData.TroopNumber}`, "Inventory", "Cookies");
 
@@ -35,7 +36,6 @@ export const Inventory = () => {
         const getInventoryList = async () => {
             try{
                 const DocSnap = await getDoc(CookiesRef);
-                
                 setInventoryList(DocSnap.data());
                 setTableUpdate(false);
             }catch (err){
@@ -46,33 +46,70 @@ export const Inventory = () => {
         getInventoryList();
     }, [UserData.TroopNumber, TableUpdate]);
 
+    const InventoryEdit = async () => {
+        //If the stop edit button is pressed then the inventory counts will be updated
+        if(IsEditing){
+            await updateDoc(CookiesRef, Object.fromEntries(
+                Object.entries(InventoryList).map(([key, value]) => [key, Number(value)])
+            ));
+            setTableUpdate(true);
+        }
+        setIsEditing(!IsEditing);
+    }
+
+    const handleChange = (e, cookieType) => {
+        setInventoryList((prev) => ({
+            ...prev,
+            [cookieType]: e.target.value
+        }));
+    };
+
     return(
         <>
             <div className="IventoryMainContainer">
                 <div className="InventoryButtons">
-                    <span>Edit</span><span>Search</span>
+                    {IsEditing ? (
+                        <button className="InventoryEditButtons" onClick={InventoryEdit}>Stop Editing</button>
+                    ) : (
+                        <button className="InventoryEditButtons" onClick={InventoryEdit}>Edit Inventory Counts</button>
+                    )}
+                    <span>Search</span>
                 </div>
 
                 <div className="InventoryListDiv">
                 {InventoryList ? (
                     <ul className="InventoryList">
-                        <li>
+                        <li id="Adventurefuls">
                             <img src={AdventurefulsImg}></img>
-                            <p><b>Adventurefuls:</b> {InventoryList.Adventurefuls}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Adventurefuls:</b></p>
+                                    <input type="number" value={InventoryList["Adventurefuls"]} onChange={(e) => handleChange(e, "Adventurefuls")}/> 
+                                </>
+                            ) : (
+                                <p><b>Adventurefuls: </b> {InventoryList.Adventurefuls}</p>
+                            )}
                         </li>
-                        <li>
+                        <li id="CaramelChocolateChip">
                             <img src={CaramelChocolateChipImg}></img>
-                            <p><b>Caramel Chocolate Chip: </b>{InventoryList.CaramelChocolateChip}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Caramel Chocolate Chip:</b></p>
+                                    <input type="number" value={InventoryList["CaramelChocolateChip"]} onChange={(e) => handleChange(e, "CaramelChocolateChip")}/> 
+                                </>
+                            ) : (
+                                <p><b>Caramel Chocolate Chip: </b> {InventoryList.CaramelChocolateChip}</p>
+                            )}
                         </li>
-                        <li>
+                        <li id="CarameldeLites">
                             <img src={CarameldeLitesImg}></img>
                             <p><b>Caramel deLites: </b>{InventoryList.CarameldeLites}</p>
                         </li>
-                        <li>
+                        <li id="Samoas">
                             <img src={CarameldeLitesImg}></img>
                             <p><b>Samoas: </b>{InventoryList.Samoas}</p>
                         </li>
-                        <li>
+                        <li id="PeanutButterSandwich">
                             <img src={PeanutButterSandwichImg}></img>
                             <p><b>Peanut Butter Sandwich: </b>{InventoryList.PeanutButterSandwich}</p>
                         </li>

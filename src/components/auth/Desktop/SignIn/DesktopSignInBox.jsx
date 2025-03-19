@@ -41,12 +41,12 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
                 <br></br>
                 
                 <label>Email</label>
-                <input id="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
     
                 <br></br><br></br>
     
                 <label>Password</label>
-                <input id="password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
                 
                 <br></br><br></br>
 
