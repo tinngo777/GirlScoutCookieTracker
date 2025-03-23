@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { doc, collection, addDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../auth/AuthContext";
+import { getDocs } from "firebase/firestore";
+
 
 export const Orders = () => {
     const { user, loading, UserData} = useAuth();
