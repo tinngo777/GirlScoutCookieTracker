@@ -35,7 +35,7 @@ export const Orders = () => {
         })
 
         setCustomerName("");
-        
+
         setCustomerEmail("");
         setAdventurefuls("");
         setToastYays("");
@@ -44,8 +44,7 @@ export const Orders = () => {
         setThinMints("");
     }
 
-
-
+    
     return(
         <>
             <div className="MainContainer">
