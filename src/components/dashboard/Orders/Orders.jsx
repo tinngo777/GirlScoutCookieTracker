@@ -45,10 +45,12 @@ export const Orders = () => {
         setThinMints("");
     };
 
-    const fetchOutstandingOrders = async () => { 
+    const fetchOutstandingOrders = async () => {
         const querySnapshot = await getDocs(OutstandingOrdersRef);
         const orders = querySnapshot.docs.map(doc => doc.data());
-        setOutstandingOrders(orders);
+    
+        const userOrders = orders.filter(order => order.PlacedBy === UserData.Name);
+        setOutstandingOrders(userOrders);
     };
 
     return (
