@@ -85,7 +85,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Adventurefuls:</b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Adventurefuls"]} onChange={(e) => handleChange(e, "Adventurefuls")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Adventurefuls"]} onChange={(e) => handleChange(e, "Adventurefuls") } onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Adventurefuls: </b> {InventoryList.Adventurefuls}</p>
@@ -97,7 +97,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Caramel Chocolate Chip:</b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["CaramelChocolateChip"]} onChange={(e) => handleChange(e, "CaramelChocolateChip")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["CaramelChocolateChip"]} onChange={(e) => handleChange(e, "CaramelChocolateChip")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Caramel Chocolate Chip: </b> {InventoryList.CaramelChocolateChip}</p>
@@ -109,7 +109,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Caramel deLites: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["CarameldeLites"]} onChange={(e) => handleChange(e, "CarameldeLites")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["CarameldeLites"]} onChange={(e) => handleChange(e, "CarameldeLites")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Caramel deLites: </b> {InventoryList.CarameldeLites}</p>
@@ -121,7 +121,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Samoas: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Samoas"]} onChange={(e) => handleChange(e, "Samoas")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Samoas"]} onChange={(e) => handleChange(e, "Samoas")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Samoas: </b> {InventoryList.Samoas}</p>
@@ -133,7 +133,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Peanut Butter Sandwich: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterSandwich"]} onChange={(e) => handleChange(e, "PeanutButterSandwich")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterSandwich"]} onChange={(e) => handleChange(e, "PeanutButterSandwich")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Peanut Butter Sandwich: </b> {InventoryList.PeanutButterSandwich}</p>
@@ -145,7 +145,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Do-si-dos: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Dosidos"]} onChange={(e) => handleChange(e, "Dosidos")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Dosidos"]} onChange={(e) => handleChange(e, "Dosidos")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Do-si-dos: </b> {InventoryList.Dosidos}</p>
@@ -157,7 +157,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Girl Scout S'mores: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["GirlScoutSmores"]} onChange={(e) => handleChange(e, "GirlScoutSmores")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["GirlScoutSmores"]} onChange={(e) => handleChange(e, "GirlScoutSmores")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Girl Scout S'mores: </b> {InventoryList.GirlScoutSmores}</p>
@@ -169,7 +169,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Lemonades: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Lemonades"]} onChange={(e) => handleChange(e, "Lemonades")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Lemonades"]} onChange={(e) => handleChange(e, "Lemonades")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Lemonades: </b> {InventoryList.Lemonades}</p>
@@ -181,7 +181,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Lemon-Ups: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["LemonUps"]} onChange={(e) => handleChange(e, "LemonUps")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["LemonUps"]} onChange={(e) => handleChange(e, "LemonUps")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Lemon-Ups: </b> {InventoryList.LemonUps}</p>
@@ -193,7 +193,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Peanut Butter Patties: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterPatties"]} onChange={(e) => handleChange(e, "PeanutButterPatties")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterPatties"]} onChange={(e) => handleChange(e, "PeanutButterPatties")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Peanut Butter Patties: </b> {InventoryList.PeanutButterPatties}</p>
@@ -205,7 +205,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Tagalongs: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Tagalongs"]} onChange={(e) => handleChange(e, "Tagalongs")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Tagalongs"]} onChange={(e) => handleChange(e, "Tagalongs")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Tagalongs: </b> {InventoryList.Tagalongs}</p>
@@ -217,7 +217,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Thin Mints: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["ThinMints"]} onChange={(e) => handleChange(e, "ThinMints")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["ThinMints"]} onChange={(e) => handleChange(e, "ThinMints")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Thin Mints: </b> {InventoryList.ThinMints}</p>
@@ -229,7 +229,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Toast-Yays!: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["ToastYays"]} onChange={(e) => handleChange(e, "ToastYays")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["ToastYays"]} onChange={(e) => handleChange(e, "ToastYays")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Toast-Yay!: </b> {InventoryList.ToastYays}</p>
@@ -241,7 +241,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Toffee-tastic: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["ToffeeTastic"]} onChange={(e) => handleChange(e, "ToffeeTastic")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["ToffeeTastic"]} onChange={(e) => handleChange(e, "ToffeeTastic")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Toffee-tastic: </b> {InventoryList.ToffeeTastic}</p>
@@ -253,7 +253,7 @@ export const Inventory = () => {
                             {IsEditing ? (
                                 <>
                                     <p><b>Trefoils: </b></p>
-                                    <input type="number" className="InventoryInput" value={InventoryList["Trefoils"]} onChange={(e) => handleChange(e, "Trefoils")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Trefoils"]} onChange={(e) => handleChange(e, "Trefoils")} onKeyDown={(e) => e.key === "Enter" && InventoryEdit()}/> 
                                 </>
                             ) : (
                                 <p><b>Trefoils: </b> {InventoryList.Trefoils}</p>
