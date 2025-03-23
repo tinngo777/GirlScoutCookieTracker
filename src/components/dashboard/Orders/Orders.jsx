@@ -18,8 +18,11 @@ export const Orders = () => {
     const [PeanutButterPatties, setPeanutButterPatties] = useState("");
     const [CarameldeLites, setCarameldeLites] = useState("");
     const [PeanutButterSandwhich, setPeanutButterSandwhich] = useState("");
+    const [CompletedOrders, setCompletedOrders] = useState([]);
+    const [isOrderSubmitted, setIsOrderSubmitted] = useState(false);
     
     const OutstandingOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "OutstandingOrders");
+    const CompletedOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "CompletedOrders");
 
     const SubmitOrder = async () => {
         await addDoc(OutstandingOrdersRef, {
@@ -34,6 +37,7 @@ export const Orders = () => {
             ThinMints: ThinMints,
         })
 
+        setIsOrderSubmitted(true);
         setCustomerName("");
         
         setCustomerEmail("");
@@ -44,7 +48,17 @@ export const Orders = () => {
         setThinMints("");
     }
 
+    const fetchCompletedOrders = async () => {
+        const querySnapshot = await getDocs(CompletedOrdersRef);
+        const orders = querySnapshot.docs.map(doc => doc.data());
+        setCompletedOrders(orders);
+    };
 
+    useEffect(() => {
+        if (CompletedOrdersRef) {
+            fetchCompletedOrders(); // Fetch orders when the component mounts
+        }
+    }, []);
 
     return(
         <>
@@ -87,10 +101,41 @@ export const Orders = () => {
 
                     <button onClick={SubmitOrder}>Submit</button>
                     
+                    {isOrderSubmitted && (
+                        <div className="OrderConfirmation">
+                            <h3>Order Submitted Successfully!</h3>
+                            <p><strong>Customer Name:</strong> {CustomerName}</p>
+                            <p><strong>Adventurefuls:</strong> {Adventurefuls}</p>
+                            <p><strong>Toast-Yays:</strong> {ToastYays}</p>
+                            <p><strong>Lemonades:</strong> {Lemonades}</p>
+                            <p><strong>Trefoils:</strong> {Trefoils}</p>
+                            <p><strong>ThinMints:</strong> {ThinMints}</p>
+                        </div>
+                    )}                    
+                </div>
+                <div className="ViewOrdersSection">
+                    <button onClick={fetchCompletedOrders}>View Orders</button>
 
-                    
+                    {/* Display completed orders */}
+                    {CompletedOrders.length > 0 && (
+                        <div className="CompletedOrders">
+                            <h3>Completed Orders</h3>
+                            <ul>
+                                {CompletedOrders.map((order, index) => (
+                                    <li key={index}>
+                                        <p><strong>Customer Name:</strong> {order.CustomerName}</p>
+                                        <p><strong>Adventurefuls:</strong> {order.Adventurefuls}</p>
+                                        <p><strong>Toast-Yays:</strong> {order.ToastYays}</p>
+                                        <p><strong>Lemonades:</strong> {order.Lemonades}</p>
+                                        <p><strong>Trefoils:</strong> {order.Trefoils}</p>
+                                        <p><strong>ThinMints:</strong> {order.ThinMints}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
     );
-}
+};
