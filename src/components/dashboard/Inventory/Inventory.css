@@ -1,4 +1,4 @@
-.InventoryButtons{
+.InventoryButtonBar{
     display: flex;
     justify-content: space-between;
     list-style-type: none;
@@ -10,6 +10,25 @@
     border-radius: 0.8rem;
     text-align: center;
 }
+
+.InventoryEditButtons{
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 150px;
+    background-color: #4f813f;
+}
+
+.InventoryEditButtons:hover{
+    background-color: #3a5f2e;
+}
+
+.InventoryEditButtons:active{
+    background-color: #1f3419;
+}
+
 
 .InventoryList{
     max-height: 88vh;
@@ -40,3 +59,15 @@ span{
     margin: 5px;
 } 
 
+.InventoryInput{
+    height: 30px;
+    margin: 10px;
+    width: 40px;
+    text-align: center;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

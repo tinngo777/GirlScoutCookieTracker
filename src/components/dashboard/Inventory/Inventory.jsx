@@ -67,11 +67,11 @@ export const Inventory = () => {
     return(
         <>
             <div className="IventoryMainContainer">
-                <div className="InventoryButtons">
+                <div className="InventoryButtonBar">
                     {IsEditing ? (
-                        <button className="InventoryEditButtons" onClick={InventoryEdit}>Stop Editing</button>
+                        <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Stop Editing</b></button>
                     ) : (
-                        <button className="InventoryEditButtons" onClick={InventoryEdit}>Edit Inventory Counts</button>
+                        <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Edit Inventory Counts</b></button>
                     )}
                     <span>Search</span>
                 </div>
@@ -79,80 +79,187 @@ export const Inventory = () => {
                 <div className="InventoryListDiv">
                 {InventoryList ? (
                     <ul className="InventoryList">
+
                         <li id="Adventurefuls">
                             <img src={AdventurefulsImg}></img>
                             {IsEditing ? (
                                 <>
                                     <p><b>Adventurefuls:</b></p>
-                                    <input type="number" value={InventoryList["Adventurefuls"]} onChange={(e) => handleChange(e, "Adventurefuls")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["Adventurefuls"]} onChange={(e) => handleChange(e, "Adventurefuls")}/> 
                                 </>
                             ) : (
                                 <p><b>Adventurefuls: </b> {InventoryList.Adventurefuls}</p>
                             )}
                         </li>
+
                         <li id="CaramelChocolateChip">
                             <img src={CaramelChocolateChipImg}></img>
                             {IsEditing ? (
                                 <>
                                     <p><b>Caramel Chocolate Chip:</b></p>
-                                    <input type="number" value={InventoryList["CaramelChocolateChip"]} onChange={(e) => handleChange(e, "CaramelChocolateChip")}/> 
+                                    <input type="number" className="InventoryInput" value={InventoryList["CaramelChocolateChip"]} onChange={(e) => handleChange(e, "CaramelChocolateChip")}/> 
                                 </>
                             ) : (
                                 <p><b>Caramel Chocolate Chip: </b> {InventoryList.CaramelChocolateChip}</p>
                             )}
                         </li>
+
                         <li id="CarameldeLites">
                             <img src={CarameldeLitesImg}></img>
-                            <p><b>Caramel deLites: </b>{InventoryList.CarameldeLites}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Caramel deLites: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["CarameldeLites"]} onChange={(e) => handleChange(e, "CarameldeLites")}/> 
+                                </>
+                            ) : (
+                                <p><b>Caramel deLites: </b> {InventoryList.CarameldeLites}</p>
+                            )}
                         </li>
+
                         <li id="Samoas">
                             <img src={CarameldeLitesImg}></img>
-                            <p><b>Samoas: </b>{InventoryList.Samoas}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Samoas: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["Samoas"]} onChange={(e) => handleChange(e, "Samoas")}/> 
+                                </>
+                            ) : (
+                                <p><b>Samoas: </b> {InventoryList.Samoas}</p>
+                            )}
                         </li>
+
                         <li id="PeanutButterSandwich">
                             <img src={PeanutButterSandwichImg}></img>
-                            <p><b>Peanut Butter Sandwich: </b>{InventoryList.PeanutButterSandwich}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Peanut Butter Sandwich: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterSandwich"]} onChange={(e) => handleChange(e, "PeanutButterSandwich")}/> 
+                                </>
+                            ) : (
+                                <p><b>Peanut Butter Sandwich: </b> {InventoryList.PeanutButterSandwich}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={PeanutButterSandwichImg}></img>
-                            <p><b>Do-si-dos: </b>{InventoryList.Dosidos}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Do-si-dos: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["Dosidos"]} onChange={(e) => handleChange(e, "Dosidos")}/> 
+                                </>
+                            ) : (
+                                <p><b>Do-si-dos: </b> {InventoryList.Dosidos}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={GirlScoutSmoresImg}></img>
-                            <p><b>Girl Scout S'mores: </b>{InventoryList.GirlScoutSmores}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Girl Scout S'mores: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["GirlScoutSmores"]} onChange={(e) => handleChange(e, "GirlScoutSmores")}/> 
+                                </>
+                            ) : (
+                                <p><b>Girl Scout S'mores: </b> {InventoryList.GirlScoutSmores}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={LemonadesImg}></img>
-                            <p><b>Lemonades: </b>{InventoryList.Lemonades}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Lemonades: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["Lemonades"]} onChange={(e) => handleChange(e, "Lemonades")}/> 
+                                </>
+                            ) : (
+                                <p><b>Lemonades: </b> {InventoryList.Lemonades}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={LemonUpsImg}></img>
-                            <p><b>Lemon-Ups: </b>{InventoryList.LemonUps}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Lemon-Ups: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["LemonUps"]} onChange={(e) => handleChange(e, "LemonUps")}/> 
+                                </>
+                            ) : (
+                                <p><b>Lemon-Ups: </b> {InventoryList.LemonUps}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={PeanutButterPattiesImg}></img>
-                            <p><b>Peanut Butter Patties: </b>{InventoryList.PeanutButterPatties}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Peanut Butter Patties: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["PeanutButterPatties"]} onChange={(e) => handleChange(e, "PeanutButterPatties")}/> 
+                                </>
+                            ) : (
+                                <p><b>Peanut Butter Patties: </b> {InventoryList.PeanutButterPatties}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={PeanutButterPattiesImg}></img>
-                            <p><b>Tagalongs: </b>{InventoryList.Tagalongs}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Tagalongs: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["Tagalongs"]} onChange={(e) => handleChange(e, "Tagalongs")}/> 
+                                </>
+                            ) : (
+                                <p><b>Tagalongs: </b> {InventoryList.Tagalongs}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={ThinMintsImg}></img>
-                            <p><b>ThinMints: </b>{InventoryList.ThinMints}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Thin Mints: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["ThinMints"]} onChange={(e) => handleChange(e, "ThinMints")}/> 
+                                </>
+                            ) : (
+                                <p><b>Thin Mints: </b> {InventoryList.ThinMints}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={ToastYayImg}></img>
-                            <p><b>Toast-Yay!: </b>{InventoryList.ToastYays}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Toast-Yays!: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["ToastYays"]} onChange={(e) => handleChange(e, "ToastYays")}/> 
+                                </>
+                            ) : (
+                                <p><b>Toast-Yay!: </b> {InventoryList.ToastYays}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={ToffeetasticImg}></img>
-                            <p><b>Toffee-tastic: </b>{InventoryList.ToffeeTastic}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Toffee-tastic: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["ToffeeTastic"]} onChange={(e) => handleChange(e, "ToffeeTastic")}/> 
+                                </>
+                            ) : (
+                                <p><b>Toffee-tastic: </b> {InventoryList.ToffeeTastic}</p>
+                            )}
                         </li>
+
                         <li>
                             <img src={TrefoilsImg}></img>
-                            <p><b>Trefoils: </b>{InventoryList.Trefoils}</p>
+                            {IsEditing ? (
+                                <>
+                                    <p><b>Trefoils: </b></p>
+                                    <input type="number" className="InventoryInput" value={InventoryList["Trefoils"]} onChange={(e) => handleChange(e, "Trefoils")}/> 
+                                </>
+                            ) : (
+                                <p><b>Trefoils: </b> {InventoryList.Trefoils}</p>
+                            )}
                         </li>
+
                     </ul>
                 ) : (
                     <p>Loading...</p>
