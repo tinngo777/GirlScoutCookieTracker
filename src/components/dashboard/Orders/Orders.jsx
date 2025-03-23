@@ -1,5 +1,6 @@
 import "./Orders.css";
 
+import { NewOrder } from "./NewOrder"
 import { useState, useEffect } from "react";
 import { doc, collection, addDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
@@ -55,92 +56,15 @@ export const Orders = () => {
 
     return (
         <>
-            <div className="MainContainer">
-                <div className="ButtonSection">
+            <div className="OrdersMainContainer">
+                <div className="OrdersButtonBar">
                     {/* Toggle buttons */}
-                    <button onClick={() => setIsPlacingOrder(true)}>Place Order</button>
-                    <button onClick={() => setIsPlacingOrder(false)}>View Orders</button>
+                    <button className="OrdersButtons" onClick={() => setIsPlacingOrder(!isPlacingOrder)}>Place Order</button>
+                    <button className="OrdersButtons"onClick={() => setIsPlacingOrder(false)}>View Orders</button>
                 </div>
 
                 {isPlacingOrder && (
-                    <div className="OrdersWhiteBox">
-                        <label>Customer Name: </label>
-                        <input
-                            id="name"
-                            type="text"
-                            onChange={(e) => setCustomerName(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Customer Email: </label>
-                        <input
-                            id="email"
-                            type="email"
-                            onChange={(e) => setCustomerEmail(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Number of Adventurefuls: </label>
-                        <input
-                            id="OrdersAdventurefuls"
-                            type="number"
-                            onChange={(e) => setAdventurefuls(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Number of Toast-Yays: </label>
-                        <input
-                            id="OrdersToastYays"
-                            type="number"
-                            onChange={(e) => setToastYays(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Number of Lemonades: </label>
-                        <input
-                            id="OrdersLemonades"
-                            type="number"
-                            onChange={(e) => setLemonades(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Number of Trefoils: </label>
-                        <input
-                            id="OrdersTrefoils"
-                            type="number"
-                            onChange={(e) => setTrefoils(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <label>Number of ThinMints: </label>
-                        <input
-                            id="OrdersThinMints"
-                            type="number"
-                            onChange={(e) => setThinMints(e.target.value)}
-                        />
-
-                        <br /><br />
-
-                        <button onClick={SubmitOrder}>Submit</button>
-
-                        {isOrderSubmitted && (
-                            <div className="OrderConfirmation">
-                                <h3>Order Submitted Successfully!</h3>
-                                <p><strong>Customer Name:</strong> {CustomerName}</p>
-                                <p><strong>Adventurefuls:</strong> {Adventurefuls}</p>
-                                <p><strong>Toast-Yays:</strong> {ToastYays}</p>
-                                <p><strong>Lemonades:</strong> {Lemonades}</p>
-                                <p><strong>Trefoils:</strong> {Trefoils}</p>
-                                <p><strong>ThinMints:</strong> {ThinMints}</p>
-                            </div>
-                        )}
-                    </div>
+                    <NewOrder/>
                 )}
 
                 {!isPlacingOrder && ( 
