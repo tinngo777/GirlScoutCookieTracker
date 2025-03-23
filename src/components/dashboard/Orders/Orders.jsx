@@ -18,11 +18,12 @@ export const Orders = () => {
     const [PeanutButterPatties, setPeanutButterPatties] = useState("");
     const [CarameldeLites, setCarameldeLites] = useState("");
     const [PeanutButterSandwhich, setPeanutButterSandwhich] = useState("");
-    const [CompletedOrders, setCompletedOrders] = useState([]);
+    const [OutstandingOrders, setOutstandingOrders] = useState([]);
+    //const [CompletedOrders, setCompletedOrders] = useState([]);
     const [isOrderSubmitted, setIsOrderSubmitted] = useState(false);
     
     const OutstandingOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "OutstandingOrders");
-    const CompletedOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "CompletedOrders");
+    //const CompletedOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "CompletedOrders");
 
     const SubmitOrder = async () => {
         await addDoc(OutstandingOrdersRef, {
