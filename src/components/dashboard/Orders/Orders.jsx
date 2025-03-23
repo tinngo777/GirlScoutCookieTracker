@@ -18,7 +18,7 @@ export const Orders = () => {
     const [ThinMints, setThinMints] = useState("");
     const [OutstandingOrders, setOutstandingOrders] = useState([]);
     const [isOrderSubmitted, setIsOrderSubmitted] = useState(false);
-    const [isPlacingOrder, setIsPlacingOrder] = useState(true);
+    const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
     const OutstandingOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "OutstandingOrders");
 
@@ -60,7 +60,7 @@ export const Orders = () => {
                     <button onClick={() => setIsPlacingOrder(false)}>View Orders</button>
                 </div>
 
-                {isPlacingOrder ? (
+                {isPlacingOrder && (
                     <div className="OrdersWhiteBox">
                         <label>Customer Name: </label>
                         <input
@@ -139,7 +139,9 @@ export const Orders = () => {
                             </div>
                         )}
                     </div>
-                ) : (
+                )}
+
+                {!isPlacingOrder && ( 
                     <div className="ViewOrdersSection">
                         <button onClick={fetchOutstandingOrders}>View Outstanding Orders</button>
 
