@@ -28,3 +28,15 @@
 .OrdersButtons:active{
     background-color: #1f3419;
 }
+
+.OutstandingOrderBoxes{
+    background-color: white;
+    list-style: none;
+    display: inline-block;
+    max-width: 250px;
+    max-height: 200px;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}

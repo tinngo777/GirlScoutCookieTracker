@@ -14,6 +14,7 @@ export const NewOrder = () => {
     const [formData, setFormData] = useState({
         PlacedBy: UserData.Name,
         TimeOfOrder: "",
+        OrderReadey: false,
         CustomerName: "",
         CustomerEmail: "",
         Adventurefuls: "",
