@@ -56,12 +56,6 @@ export const Orders = () => {
         const orders = querySnapshot.docs.map(doc => doc.data());
         setOutstandingOrders(orders);
     };
-    
-    useEffect(() => {
-        if (OutstandingOrdersRef) {
-            fetchOutstandingOrders();  
-        }
-    }, []); 
 
     return(
         <>
