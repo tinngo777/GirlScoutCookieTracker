@@ -1,6 +1,6 @@
 import "./Orders.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { doc, collection, addDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../auth/AuthContext";
