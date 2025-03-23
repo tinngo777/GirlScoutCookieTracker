@@ -56,7 +56,7 @@ export const Orders = () => {
 
     useEffect(() => {
         if (CompletedOrdersRef) {
-            fetchCompletedOrders(); // Fetch orders when the component mounts
+            fetchCompletedOrders(); 
         }
     }, []);
 
@@ -117,11 +117,11 @@ export const Orders = () => {
                     <button onClick={fetchCompletedOrders}>View Orders</button>
 
                     {/* Display completed orders */}
-                    {CompletedOrders.length > 0 && (
+                    {OutstandingOrders.length > 0 && (
                         <div className="CompletedOrders">
-                            <h3>Completed Orders</h3>
+                            <h3>Outstanding Orders</h3>
                             <ul>
-                                {CompletedOrders.map((order, index) => (
+                                {OutstandingOrders.map((order, index) => (
                                     <li key={index}>
                                         <p><strong>Customer Name:</strong> {order.CustomerName}</p>
                                         <p><strong>Adventurefuls:</strong> {order.Adventurefuls}</p>
