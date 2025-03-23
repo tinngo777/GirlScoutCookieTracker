@@ -48,17 +48,17 @@ export const Orders = () => {
         setThinMints("");
     }
 
-    const fetchCompletedOrders = async () => {
-        const querySnapshot = await getDocs(CompletedOrdersRef);
+    const fetchOutstandingOrders = async () => { 
+        const querySnapshot = await getDocs(OutstandingOrdersRef);
         const orders = querySnapshot.docs.map(doc => doc.data());
-        setCompletedOrders(orders);
+        setOutstandingOrders(orders);
     };
-
+    
     useEffect(() => {
-        if (CompletedOrdersRef) {
-            fetchCompletedOrders(); 
+        if (OutstandingOrdersRef) {
+            fetchOutstandingOrders();  
         }
-    }, []);
+    }, []); 
 
     return(
         <>
@@ -114,14 +114,14 @@ export const Orders = () => {
                     )}                    
                 </div>
                 <div className="ViewOrdersSection">
-                    <button onClick={fetchCompletedOrders}>View Orders</button>
+                    <button onClick={fetchOutstandingOrders}>View Outstanding Orders</button>  
 
-                    {/* Display completed orders */}
-                    {OutstandingOrders.length > 0 && (
-                        <div className="CompletedOrders">
+                    {/* Display outstanding orders */}
+                    {OutstandingOrders.length > 0 && (   
+                        <div className="OutstandingOrders"> 
                             <h3>Outstanding Orders</h3>
                             <ul>
-                                {OutstandingOrders.map((order, index) => (
+                                {OutstandingOrders.map((order, index) => (  
                                     <li key={index}>
                                         <p><strong>Customer Name:</strong> {order.CustomerName}</p>
                                         <p><strong>Adventurefuls:</strong> {order.Adventurefuls}</p>
