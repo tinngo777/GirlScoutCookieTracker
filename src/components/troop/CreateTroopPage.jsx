@@ -19,6 +19,7 @@ export const CreateTroopPage = () => {
             await setDoc(mainDocumentRef, 
                 {
                     TroopLeader: user.uid,
+                    TroopNumber: Number(TroopNumber),
                     TroopRegion: TroopRegion,
                 });
                 
