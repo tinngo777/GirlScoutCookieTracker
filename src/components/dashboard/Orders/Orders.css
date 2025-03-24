@@ -29,14 +29,57 @@
     background-color: #1f3419;
 }
 
+.ViewOrdersSection{
+    margin: 0;
+}
+
+.OutstandingOrderUL{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    transform: translate(-10px);
+}
+
 .OutstandingOrderBoxes{
     background-color: white;
     list-style: none;
-    display: inline-block;
+    min-width: 250px;
     max-width: 250px;
     max-height: 200px;
     overflow: auto;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    
 }
+
+.OutstandingOrderBoxes::-webkit-scrollbar {
+    width: 8px; /* Adjust scrollbar width */
+    border-radius: 5px;
+  }
+  
+.OutstandingOrderBoxes::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px; /* Rounds the track */
+}
+  
+.OutstandingOrderBoxes::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px; /* Rounds the thumb */
+}
+  
+.OutstandingOrderBoxes::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.OrdersMarkReadyBox{
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 50px;
+    background-color: rgb(116, 108, 108);
+    border-radius: 5px;
+    transform: translate(10px, -10px);
+}
+

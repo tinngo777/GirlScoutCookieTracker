@@ -10,7 +10,7 @@ import { useAuth } from "../auth/AuthContext";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Inventory } from "./Inventory/Inventory";
 import { Reports } from "./Reports/Reports";
-import { Customers} from "./Customers/Customers";
+import { Members} from "./Members/Members";
 import { Messages } from "./Messages/Messages";
 import { Orders } from "./Orders/Orders";
 import { Settings } from "./Settings/Settings";
@@ -101,14 +101,14 @@ export const DashboardPage = () => {
                         </li>
 
                         <li>
-                            <Link className={`link-style ${ActiveTab=="Customers" ? "active" : ""}`} onClick={(e) => {
+                            <Link className={`link-style ${ActiveTab=="Members" ? "active" : ""}`} onClick={(e) => {
                                 e.preventDefault();
-                                setActiveTab("Customers");
+                                setActiveTab("Members");
                             }}>
                                 <box-icon name='body' className={"icon-styles"}/>
-                                <span className="NavItem" >Customers</span>
+                                <span className="NavItem" >Members</span>
                             </Link>
-                            <span className="tooltip" >Customers</span>
+                            <span className="tooltip" >Members</span>
                         </li>
 
                         <li>
@@ -162,7 +162,7 @@ export const DashboardPage = () => {
                     {ActiveTab === "Dashboard" && <Dashboard/>} 
                     {ActiveTab === "Inventory" && <Inventory/>} 
                     {ActiveTab === "Reports" && <Reports/>} 
-                    {ActiveTab === "Customers" && <Customers/>} 
+                    {ActiveTab === "Members" && <Members/>} 
                     {ActiveTab === "Messages" && <Messages/>} 
                     {ActiveTab === "Orders" && <Orders/>} 
                     {ActiveTab === "Settings" && <Settings/>} 

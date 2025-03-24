@@ -80,32 +80,39 @@ export const Orders = () => {
                 {isViewingAllOrders && ( 
                     <div className="ViewOrdersSection">
                         {/* Display outstanding orders */}
-                        
+                            <h3>All Member Orders</h3>
                             <div className="OutstandingOrders">
-                                <h3>All Member Orders</h3>
                                 <ul className="OutstandingOrderUL">
                                     {OutstandingOrders.map((order, index) => (
-                                        <li className="OutstandingOrderBoxes" key={index}>
-                                        <p><b>Placed By:</b> {order.PlacedBy}</p>
-                                        <p><b>Customer Name:</b> {order.CustomerName}</p>
-                                        <p><b>Customer Email:</b> {order.CustomerEmail}</p>
-                                        <p><b>Order Placed:</b> {order.TimeOfOrder}</p>
-                                        <p><b>Adventurefuls:</b> {order.Adventurefuls}</p>
-                                        <p><b>Caramel Chocolate Chip:</b> {order.CaramelChocolateChip}</p>
-                                        <p><b>Caramel deLites:</b> {order.CarameldeLites}</p>
-                                        <p><b>Do-si-dos:</b> {order.Dosidos}</p>
-                                        <p><b>Girl Scout S'mores:</b> {order.GirlScoutSmores}</p>
-                                        <p><b>Lemon Ups:</b> {order.LemonUps}</p>
-                                        <p><b>Lemonades:</b> {order.Lemonades}</p>
-                                        <p><b>Peanut Butter Patties:</b> {order.PeanutButterPatties}</p>
-                                        <p><b>Peanut Butter Sandwhich:</b> {order.PeanutButterSandwhich}</p>
-                                        <p><b>Samoas:</b> {order.Samoas}</p>
-                                        <p><b>Tagalongs:</b> {order.Tagalongs}</p>
-                                        <p><b>Thin Mints:</b> {order.ThinMints}</p>
-                                        <p><b>Toast-Yay!:</b> {order.ToastYays}</p>
-                                        <p><b>Toffee-tastic:</b> {order.ToffeeTastic}</p>
-                                        <p><b>Trefoils:</b> {order.Trefoils}</p>
-                                    </li>
+                                        <>
+                                        <div>
+                                            <li className="OutstandingOrderBoxes" key={index}>
+                                                <p><b>Placed By:</b> {order.PlacedBy}</p>
+                                                <p><b>Customer Name:</b> {order.CustomerName}</p>
+                                                <p><b>Customer Email:</b> {order.CustomerEmail}</p>
+                                                <p><b>Order Placed:</b> {order.TimeOfOrder}</p>
+                                                <hr/>
+                                                <p><b>Adventurefuls:</b> {order.Adventurefuls}</p>
+                                                <p><b>Caramel Chocolate Chip:</b> {order.CaramelChocolateChip}</p>
+                                                <p><b>Caramel deLites:</b> {order.CarameldeLites}</p>
+                                                <p><b>Do-si-dos:</b> {order.Dosidos}</p>
+                                                <p><b>Girl Scout S'mores:</b> {order.GirlScoutSmores}</p>
+                                                <p><b>Lemon Ups:</b> {order.LemonUps}</p>
+                                                <p><b>Lemonades:</b> {order.Lemonades}</p>
+                                                <p><b>Peanut Butter Patties:</b> {order.PeanutButterPatties}</p>
+                                                <p><b>Peanut Butter Sandwhich:</b> {order.PeanutButterSandwhich}</p>
+                                                <p><b>Samoas:</b> {order.Samoas}</p>
+                                                <p><b>Tagalongs:</b> {order.Tagalongs}</p>
+                                                <p><b>Thin Mints:</b> {order.ThinMints}</p>
+                                                <p><b>Toast-Yay!:</b> {order.ToastYays}</p>
+                                                <p><b>Toffee-tastic:</b> {order.ToffeeTastic}</p>
+                                                <p><b>Trefoils:</b> {order.Trefoils}</p>
+                                            </li>
+                                            <div className="OrdersMarkReadyBox">
+                                                <p>Mark Ready For Pickup</p>
+                                            </div>
+                                        </div>
+                                        </>
                                     ))}
                                 </ul>
                             </div>
