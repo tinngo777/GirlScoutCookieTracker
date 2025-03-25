@@ -9,7 +9,7 @@ import { useAuth } from "../auth/AuthContext";
 
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Inventory } from "./Inventory/Inventory";
-import { Reports } from "./Reports/Reports";
+import { Booths } from "./Booths/Booths";
 import { Members} from "./Members/Members";
 import { Messages } from "./Messages/Messages";
 import { Orders } from "./Orders/Orders";
@@ -90,14 +90,14 @@ export const DashboardPage = () => {
                         </li>
 
                         <li>
-                            <Link className={`link-style ${ActiveTab=="Reports" ? "active" : ""}`} onClick={(e) => {
+                            <Link className={`link-style ${ActiveTab=="Booths" ? "active" : ""}`} onClick={(e) => {
                                 e.preventDefault();
-                                setActiveTab("Reports");
+                                setActiveTab("Booths");
                             }}>
-                                <box-icon name='paperclip' className={"icon-styles"}/>
-                                <span className="NavItem" >Reports</span>
+                                <box-icon name='store' className={"icon-styles"}/>
+                                <span className="NavItem" >Booths</span>
                             </Link>
-                            <span className="tooltip" >Reports</span>
+                            <span className="tooltip" >Booths</span>
                         </li>
 
                         <li>
@@ -161,7 +161,7 @@ export const DashboardPage = () => {
                     
                     {ActiveTab === "Dashboard" && <Dashboard/>} 
                     {ActiveTab === "Inventory" && <Inventory/>} 
-                    {ActiveTab === "Reports" && <Reports/>} 
+                    {ActiveTab === "Booths" && <Booths/>} 
                     {ActiveTab === "Members" && <Members/>} 
                     {ActiveTab === "Messages" && <Messages/>} 
                     {ActiveTab === "Orders" && <Orders/>} 

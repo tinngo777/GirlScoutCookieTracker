@@ -1,6 +1,6 @@
-import "./Reports.css";
+import "./Booths.css";
 
-export const Reports = () => {
+export const Booths = () => {
     return(
         <>
             <div className="MainContainer">
