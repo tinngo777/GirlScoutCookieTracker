@@ -32,17 +32,6 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
         }
     };
 
-    function DisplayAuthError({ condition }) {
-        if (condition == "auth/invalid-email") {
-          return <p className="DesktopSignInBoxErrorBox">Invalid Email</p>;
-        }
-        if (condition == "auth/invalid-credential") {
-            return <p className="DesktopSignInBoxErrorBox">Incorrect Password</p>;
-        }else{
-            return <><br></br></>
-        }
-    }
-
     return(
         <>
             <img src={Cookie_Logo} id="SignInBoxCookieLogo"/>
@@ -63,8 +52,6 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
                 <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
                 {AuthError == "auth/invalid-credential" ? (<p className="DesktopSignInBoxErrorBox">Incorrect Password</p>) : (<br></br>)}
                 
-                
-
                 <br></br>
 
                 <p id="SignInBoxHaveAccount" onClick={() => setHasAccount(false)}>Don't have an account?</p>
