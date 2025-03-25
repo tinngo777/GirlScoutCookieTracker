@@ -76,3 +76,7 @@
 #SignInBoxHaveAccount:active{
     color: #043e8e;
 }
+
+.DesktopSignInBoxErrorBox{
+    color: red
+}

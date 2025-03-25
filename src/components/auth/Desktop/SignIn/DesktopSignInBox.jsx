@@ -9,6 +9,7 @@ import { auth } from "../../../../config/firebase"
 export const DesktopSignInBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [AuthError, setAuthError] = useState();
     
     const { user, loading } = useAuth();
     const navigate = useNavigate();
@@ -26,9 +27,21 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
             navigate("/dashboard");
         }
         catch (err){
+            setAuthError(err.code);
             console.error(err)
         }
     };
+
+    function DisplayAuthError({ condition }) {
+        if (condition == "auth/invalid-email") {
+          return <p className="DesktopSignInBoxErrorBox">Invalid Email</p>;
+        }
+        if (condition == "auth/invalid-credential") {
+            return <p className="DesktopSignInBoxErrorBox">Incorrect Password</p>;
+        }else{
+            return <><br></br></>
+        }
+    }
 
     return(
         <>
@@ -42,15 +55,20 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
                 
                 <label>Email</label>
                 <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
-    
-                <br></br><br></br>
+                {AuthError == "auth/invalid-email" ? (<p className="DesktopSignInBoxErrorBox">Invalid Email</p>) : (<br></br>)}
+
+                <br></br>
     
                 <label>Password</label>
                 <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
+                {AuthError == "auth/invalid-credential" ? (<p className="DesktopSignInBoxErrorBox">Incorrect Password</p>) : (<br></br>)}
                 
-                <br></br><br></br>
+                
+
+                <br></br>
 
                 <p id="SignInBoxHaveAccount" onClick={() => setHasAccount(false)}>Don't have an account?</p>
+
 
                 <button id="SignInBoxSignInButton" onClick={signIn}>Sign In</button>
     
