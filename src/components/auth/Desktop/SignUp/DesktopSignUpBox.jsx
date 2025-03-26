@@ -11,6 +11,7 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [AuthError, setAuthError] = useState("");
     
     const { user, loading } = useAuth();
     const navigate = useNavigate();
@@ -23,6 +24,9 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
     }, [user, loading, navigate, redirecting]);
 
     const signUp = async () => {
+        if(name == ""){
+            setAuthError("no-name");
+        }else{
             try{
                 setRedirecting(true);
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -40,9 +44,38 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
                 navigate("/troop");
             }
             catch (err){
-                console.error(err)
+                setAuthError(err.code);
+                console.error(err);
             }
-        };
+        }
+        
+    };
+
+    function EmailErrorComponent({ ErrorCode }) {
+        switch (ErrorCode) {
+            case 'auth/invalid-email':
+            return <p className="DesktopSignUpBoxErrorBox">Invalid Email</p>;
+
+            case 'auth/email-already-in-use':
+            return <p className="DesktopSignUpBoxErrorBox">Email Already In Use</p>;
+
+            default:
+            return <div style={{ height: "22px" }}></div>;
+        }
+    }
+
+    function PasswordErrorComponent({ ErrorCode }) {
+        switch (ErrorCode) {
+            case 'auth/missing-password':
+            return <p className="DesktopSignUpBoxErrorBox">Enter Password</p>;
+
+            case 'auth/weak-password':
+            return <p className="DesktopSignUpBoxErrorBox">Must Be 6 Characters Long</p>;
+
+            default:
+            return <div style={{ height: "22px" }}></div>;
+        }
+    }
 
     return(
         <>
@@ -51,22 +84,25 @@ export const DesktopSignUpBox = ({ setHasAccount }) => {
             <div id="SignUpBoxInnerBox">
         
                     <p>Sign Up Today!</p>
-                    <br></br>
-        
-                    <label>Email</label>
-                    <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signUp()}/>
-    
-                    <br></br><br></br>
+                    <br/>
 
                     <label>Name</label>
                     <input id="name" type="text" onChange={(e) => setName(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signUp()}/>
-        
-                    <br></br><br></br>
+                    {AuthError == "no-name" ? (<p className="DesktopSignUpBoxErrorBox">Enter Your Name</p>) : (<div style={{ height: "22px" }}></div>)}
+
+                    
+
+                    <label>Email</label>
+                    <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signUp()}/>
+                    <EmailErrorComponent ErrorCode={AuthError}/>
+
+                    
         
                     <label>Password</label>
                     <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signUp()}/>
+                    <PasswordErrorComponent ErrorCode={AuthError}/>
                         
-                    <br></br><br></br>
+                    <br/>
 
                     <p id="SignUpBoxDontHaveAccount" onClick={() => setHasAccount(true)}>Already have an account?</p>
 

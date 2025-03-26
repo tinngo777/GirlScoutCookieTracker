@@ -9,7 +9,7 @@ import { auth } from "../../../../config/firebase"
 export const DesktopSignInBox = ({ setHasAccount }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [AuthError, setAuthError] = useState();
+    const [AuthError, setAuthError] = useState("");
     
     const { user, loading } = useAuth();
     const navigate = useNavigate();
@@ -44,15 +44,15 @@ export const DesktopSignInBox = ({ setHasAccount }) => {
                 
                 <label>Email</label>
                 <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
-                {AuthError == "auth/invalid-email" ? (<p className="DesktopSignInBoxErrorBox">Invalid Email</p>) : (<br></br>)}
+                {AuthError == "auth/invalid-email" ? (<p className="DesktopSignInBoxErrorBox">Invalid Email</p>) : (<div style={{ height: "22px" }}></div>)}
 
-                <br></br>
+                
     
                 <label>Password</label>
                 <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === "Enter" && signIn()}/>
-                {AuthError == "auth/invalid-credential" ? (<p className="DesktopSignInBoxErrorBox">Incorrect Password</p>) : (<br></br>)}
+                {AuthError == "auth/invalid-credential" ? (<p className="DesktopSignInBoxErrorBox">Incorrect Password</p>) : (<div style={{ height: "22px" }}></div>)}
                 
-                <br></br>
+                
 
                 <p id="SignInBoxHaveAccount" onClick={() => setHasAccount(false)}>Don't have an account?</p>
 

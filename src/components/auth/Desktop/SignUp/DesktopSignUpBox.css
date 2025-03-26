@@ -76,3 +76,7 @@
 #SignUpBoxDontHaveAccount:active{
     color: #043e8e;
 }
+
+.DesktopSignUpBoxErrorBox{
+    color: red
+}
