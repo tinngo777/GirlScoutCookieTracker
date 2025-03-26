@@ -13,6 +13,7 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
   const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [AuthError, setAuthError] = useState("");
     
     const { user, loading } = useAuth();
     const navigate = useNavigate();
@@ -25,6 +26,9 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
     }, [user, loading, navigate, redirecting]);
 
     const signUp = async () => {
+        if(name == ""){
+            setAuthError("no-name");
+        }else{
             try{
                 setRedirecting(true);
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -42,11 +46,39 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
                 navigate("/troop");
             }
             catch (err){
-                console.error(err)
+                setAuthError(err.code);
+                console.error(err);
             }
-        };
+        }
+        
+    };
   
-  
+    function EmailErrorComponent({ ErrorCode }) {
+        switch (ErrorCode) {
+            case 'auth/invalid-email':
+            return <p className="DesktopSignUpBoxErrorBox">Invalid Email</p>;
+
+            case 'auth/email-already-in-use':
+            return <p className="DesktopSignUpBoxErrorBox">Email Already In Use</p>;
+
+            default:
+            return <div style={{ height: "19px" }}></div>;
+        }
+    }
+
+    function PasswordErrorComponent({ ErrorCode }) {
+        switch (ErrorCode) {
+            case 'auth/missing-password':
+            return <p className="DesktopSignUpBoxErrorBox">Enter Password</p>;
+
+            case 'auth/weak-password':
+            return <p className="DesktopSignUpBoxErrorBox">Must Be 6 Characters Long</p>;
+
+            default:
+            return <div style={{ height: "19px" }}></div>;
+        }
+    }
+
 	return (
 		<>
 			<img src={Cookie_Logo} className="MobileSignUpBoxLogo" alt="Logo" />
@@ -56,12 +88,15 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
 			<div className="MobileSignUpBoxSignUpDiv">
 				<label>Name</label>
 				<input id="name" type="text" onChange={(e) => setName(e.target.value)}/>
-
+                {AuthError == "no-name" ? (<p className="MobileSignUpBoxErrorBox">Enter Your Name</p>) : (<div style={{ height: "19px" }}></div>)}
+    
 				<label>Email</label>
 				<input id="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                <EmailErrorComponent ErrorCode={AuthError}/>
 
 				<label>Password</label>
 				<input id="password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                <PasswordErrorComponent ErrorCode={AuthError}/>
 
 				<p className="MobileSignUpBoxPasswordInfo">Must be at least 6 characters.</p>
 
@@ -76,10 +111,13 @@ export const MobileSignUpBox= ({ setHasAccount }) => {
 					</p>
 				</div>
 
-				<button className="google-btn">
+                {/*
+                    <button className="google-btn">
 					<img src={GoogleLogo} alt="Google logo" className="google-logo" />
 					Sign in with Google
-				</button>
+				    </button>*
+                */}
+				
 			</div>
 		</>
   );
