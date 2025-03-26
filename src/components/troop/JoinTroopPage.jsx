@@ -52,21 +52,26 @@ export const JoinTroopPage = () => {
                 console.error(err);
             }
         }
-
+ 
         getTroopsList();
     }, [TableUpdate]);
 
     return(
         <>
-            <div id='MainContainer'>
-                <label>Troop Number To Join: </label>
-                <select name="TroopSelection" id="TroopSelection" defaultValue="" onChange={(e) => setTroopNumber(e.target.value)}>
-                    <option value="" disabled>Choose an Option</option>
-                    {TroopsList.map((Troop) => (
-                        <option key={Troop.id} value={Troop.TroopNumber}>{Troop.id}</option>
-                    ))}
-                </select>
-                <button id="JoinTroopButton" onClick={joinTroop}>Request To Join</button> 
+            <div id='JoinTroopPageMainContainer'>
+                <div id="JoinTroopPageWhiteBox">
+                    <div id="JoinTroopPageInnerBox">
+                        <label>Troop Number To Join: </label>
+                        <select name="TroopSelection" id="TroopSelection" defaultValue="" onChange={(e) => setTroopNumber(e.target.value)}>
+                            <option value="" disabled>Choose an Option</option>
+                            {TroopsList.map((Troop) => (
+                                <option key={Troop.id} value={Troop.TroopNumber}>{Troop.id}</option>
+                            ))}
+                        </select>
+                        <div style={{ height: "25px" }}></div>
+                        <button id="JoinTroopButton" onClick={joinTroop}>Request To Join</button> 
+                    </div>
+                </div>
             </div>
         </>
     );

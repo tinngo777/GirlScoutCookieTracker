@@ -1,0 +1,57 @@
+#JoinTroopPageMainContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a7bf9f;  
+
+    background-color: #a7bf9f; /* Fallback color */
+    background-image: url("../../assets/Cookie_Background.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#JoinTroopPageWhiteBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 50%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #8c8f8b;
+}
+
+#JoinTroopPageInnerBox{
+    width: 80%;
+    height: 100%;
+    padding: .8rem;
+    padding-top: 4rem;
+}
+
+#JoinTroopPageInnerBox select{
+    width: 100%;
+    height: 12%;
+    font-size: 16px;
+}
+
+#JoinTroopPageWhiteBox button{
+    width: 100%;
+    background-color: #1366d9;;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 1rem;
+    box-shadow: 2px 2px 5px #8c8f8b;
+    cursor: pointer;
+}
+
+#JoinTroopPageWhiteBox button:hover{
+    background-color: #5190e9;
+}
+
+#JoinTroopPageWhiteBox button:active{
+    background-color: #043e8e;
+}

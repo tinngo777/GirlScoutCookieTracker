@@ -15,7 +15,7 @@ export const TroopPage = () => {
     return (
         <>
             <div id='TroopPageMainContainer'>
-                <div id="WhiteBox">
+                <div id="TroopPageWhiteBox">
                     <button onClick={CreateTroop}>Create Troop</button>
                     <button onClick={JoinTroop}>Join Existing Troop</button>
                 </div>
