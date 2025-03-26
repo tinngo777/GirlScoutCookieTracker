@@ -17,8 +17,10 @@ export const AwaitJoin = () => {
     
     return(
         <>
-            <div id='MainContainer'>
-                Let Your Troop Leader Know To Accept You, Refresh The Page When Accepted
+            <div id='AwaitJoinMainContainer'>
+                <p><b>Let Your Troop Leader Know To Accept You</b></p>
+                
+                <p><b>Refresh The Page When Accepted</b></p>
             </div>
         </>
     );

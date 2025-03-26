@@ -1,0 +1,16 @@
+#AwaitJoinMainContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #a7bf9f;  
+
+    background-color: #a7bf9f; /* Fallback color */
+    background-image: url("../../assets/Cookie_Background.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
