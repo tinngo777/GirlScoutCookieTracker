@@ -72,7 +72,7 @@ export const Messages = () => {
 
     return(
         <>
-            <div className="MainContainer">
+            <div className="MessagesMainContainer">
                 <ul className="MessagesList">
                     {MemberRequests.map((request) => (
                         <li key={request.id}>

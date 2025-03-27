@@ -1,16 +1,128 @@
-.MembersList li{
-    display: flex;
+.MembersPageMainContainer{
+    overflow: hidden;
+}
+
+.MembersPageMembersList li{
     justify-content: space-between;
     list-style-type: none;
     background-color: white;
     box-shadow: 4px 4px 4px #adb0ac;
-    height: 50px;
     line-height: 50px;
     margin: 0.8rem auto;
     border-radius: 0.8rem;
     text-align: center;
 }
 
-.MembersList li span{
+.InactiveMembersPageMembersListItem{
+    display: flex;
+    height: 50px;
+    transition: all .5s ease;
+}
+
+.InactiveMembersPageMembersListItem span{
     padding-left: 10px;
+}
+
+.InactiveMembersPageMembersListItem div box-icon{
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.SelectedMembersPageMembersListItem{
+    height: 150px;
+    flex-direction: column;
+    transition: all .5s ease;
+}
+
+.SelectedMembersPageMembersListItem span{
+    padding-left: 10px;
+}
+
+.SelectedMembersPageMembersListItem div box-icon{
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    height: 50px;
+}
+
+.MembersPageTopRow{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    transition: all .5s ease;
+}
+
+.MembersPageBottomRow{
+    background-color: rgb(209, 207, 207);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 100px;
+    width: 100%;
+    border-radius: 0px 0px .8rem .8rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.MembersPageEditRoleSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MembersPageEditRoleSection select{
+    height: 30px;
+    width: 150px;
+}
+
+.MemberPageSaveChangesButton{
+    border: none;
+    background-color: #4f813f;
+    border-radius: .4rem;
+    height: 30px;
+    width: 120px;
+}
+
+.MemberPageSaveChangesButton:hover{
+    background-color: #3a5f2e;
+}
+
+.MemberPageSaveChangesButton:active{
+    background-color: #1f3419;
+}
+
+.MemberPageRemoveMemberButton{
+    border: none;
+    background-color: red;
+    border-radius: .4rem;
+    height: 30px;
+    width: 120px;
+}
+
+.MemberPageRemoveMemberButton:hover{
+    background-color: rgb(185, 2, 2);
+}
+
+.MemberPageRemoveMemberButton:active{
+    background-color: rgb(130, 2, 2);
+}
+
+/* For rotating setting button */
+.rotating {
+    animation: rotateCog .5s ease-in-out;
+    transform-origin: center center;
+    height: 50px;
+}
+
+@keyframes rotateCog {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
