@@ -22,10 +22,11 @@ export const Members = () => {
 
         const getMemberList = async () => {
             try{
+                const rolePriority = { "Leader": 2, "Co-leader": 1, "Member": 0 }; 
+
                 const data = await getDocs(MembersRef);
                 const filteredData = data.docs.map(doc => ({id: doc.id, ...doc.data() }));
-                const sortedData = filteredData.sort((a, b) => (b.Role === "Leader") - (a.Role === "Leader"));
-
+                const sortedData = filteredData.sort((a, b) => (rolePriority[b.Role] || 0) - (rolePriority[a.Role] || 0));
 
                 setMemberList(sortedData);
                 setTableUpdate(false);
