@@ -73,18 +73,28 @@ export const Messages = () => {
     return(
         <>
             <div className="MessagesMainContainer">
-                <ul className="MessagesList">
-                    {MemberRequests.map((request) => (
-                        <li key={request.id}>
-                            <span><b>{request.Username}</b> is asking to join the troop!</span>
-                            <div>
-                                <box-icon type='solid' color="green" name='user-check' onClick={() => AcceptRequest(request.id, request.Username)}/>
-                                <box-icon type='solid' color="red" name='user-x' onClick={() => DenyRequest()}/>
-                            </div>
-                        </li>
-                    ))}
-                    
-                </ul>
+                {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                    <ul className="MessagesList">
+                        {MemberRequests.map((request) => (
+                            <li key={request.id}>
+                                <span><b>{request.Username}</b> is asking to join the troop!</span>
+                                <div>
+                                    <box-icon type='solid' color="green" name='user-check' onClick={() => AcceptRequest(request.id, request.Username)}/>
+                                    <box-icon type='solid' color="red" name='user-x' onClick={() => DenyRequest()}/>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ):(
+                    <ul className="MessagesList">
+                        {MemberRequests.map((request) => (
+                            <li key={request.id}>
+                                <span><b>{request.Username}</b> is asking to join the troop!</span>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                
 
             </div>
         </>
