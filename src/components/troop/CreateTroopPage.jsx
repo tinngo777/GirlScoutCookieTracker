@@ -65,7 +65,9 @@ export const CreateTroopPage = () => {
                 const inventorySubcollectionRef = collection(mainDocumentRef, "Inventory");
                 const outstandingOrdersSubcollectionRef = collection(mainDocumentRef, "OutstandingOrders");
                 const completedOrdersSubcollectionRef = collection(mainDocumentRef, "CompletedOrders"); 
-    
+                const boothRequestsSubcollectionRef = collection(mainDocumentRef, "BoothRequests");
+                const boothsSubcollectionRef = collection(mainDocumentRef, "Booths");
+                
                 await setDoc(doc(memberSubcollectionRef, user.uid), {
                     Name: UserData.Name,
                     Role: "Leader",
@@ -107,6 +109,21 @@ export const CreateTroopPage = () => {
                     OrderContents: 'placeholder',
                     OrderData: '1/1/00',
                     CompletionDate: '1/1/00',
+                });
+
+                await setDoc(doc(boothRequestsSubcollectionRef, "PlaceholderBoothRequest"), {
+                    RequesterID: null,
+                    RequestStatus: "Pending",
+                    BoothLocation: "TBD",
+                    RequestDate: "1/1/00",
+                });
+
+                // Initialize Booths (could be a placeholder or actual booth setup)
+                await setDoc(doc(boothsSubcollectionRef, "PlaceholderBooth"), {
+                    Location: "TBD",
+                    AvailableDates: ["1/1/00"],
+                    ScheduledTime: "TBD",
+                    Available: true,
                 });
     
                 await updateDoc(doc(db, "Users", user.uid),{
