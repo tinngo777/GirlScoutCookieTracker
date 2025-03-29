@@ -68,11 +68,19 @@ export const Inventory = () => {
         <>
             <div className="IventoryMainContainer">
                 <div className="InventoryButtonBar">
-                    {IsEditing ? (
-                        <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Stop Editing</b></button>
-                    ) : (
-                        <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Edit Inventory Counts</b></button>
+                    {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                        <>
+                            {IsEditing ? (
+                                <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Stop Editing</b></button>
+                            ) : (
+                                <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Edit Inventory Counts</b></button>
+                            )}
+                        </>
+                    ):(
+                        <>
+                        </>
                     )}
+                    
                     
                 </div>
 
