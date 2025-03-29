@@ -73,7 +73,7 @@ export const Inventory = () => {
                     ) : (
                         <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Edit Inventory Counts</b></button>
                     )}
-                    <span>Search</span>
+                    
                 </div>
 
                 <div className="InventoryListDiv">

@@ -6,15 +6,15 @@ import { db } from "../../../config/firebase";
 import { useAuth } from "../../auth/AuthContext";
 import { getDocs } from "firebase/firestore";
 
-export const NewOrder = () => {
+export const NewOrder = ({ setIsPlacingOrder }) => {
     const { user, loading, UserData } = useAuth();
-    const OutstandingOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "OutstandingOrders");
-
+    const OrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Orders");
 
     const [formData, setFormData] = useState({
-        PlacedBy: UserData.Name,
-        TimeOfOrder: "",
-        OrderReadey: false,
+        ReadyForPickup: false,
+        PickedUpStatus: false,
+        PlacedBy: UserData?.Name || "",
+        TimeOfOrder: new Date().toISOString(),
         CustomerName: "",
         CustomerEmail: "",
         Adventurefuls: "",
@@ -44,13 +44,8 @@ export const NewOrder = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //Set Time Of Order
-        setFormData({
-            TimeOfOrder: new Date().toISOString()
-        })
-
-        //Add order to Outstanding orders in firebase
-        await addDoc(OutstandingOrdersRef, formData);
+        // Add order to Outstanding orders in Firebase
+        await addDoc(OrdersRef, formData);
 
         // Clear the input fields after submission
         setFormData({
@@ -72,7 +67,9 @@ export const NewOrder = () => {
             ToffeeTastic: "",
             Trefoils: "",
         });
-      };
+
+        setIsPlacingOrder(false);
+    };
 
     return(
         <>

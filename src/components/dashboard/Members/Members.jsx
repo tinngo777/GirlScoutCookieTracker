@@ -115,7 +115,6 @@ export const Members = () => {
                                                     <option value="" disabled>Choose an Option</option>
                                                     <option value="Member">Member</option>
                                                     <option value="Co-leader" >Co-leader</option>
-                                                    
                                                 </select>
                                             </div>
                                             <div>

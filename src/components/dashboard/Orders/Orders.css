@@ -75,11 +75,38 @@
 }
 
 .OrdersMarkReadyBox{
+    display: flex;
+    justify-content: space-between;
     min-width: 250px;
     max-width: 250px;
     max-height: 50px;
     background-color: rgb(116, 108, 108);
     border-radius: 5px;
     transform: translate(10px, -10px);
+}
+
+.OrdersMarkReadyBox div{
+    padding-right: 10px;
+    padding-top: 2px
+}
+
+.OrdersMarkReadyBox input{
+    height: 15px;
+    width: 15px;
+}
+
+.ViewOrdersSectionTopRow{
+    display: flex;
+    justify-content: space-between;
+    
+    line-height: 40px;
+
+}
+
+.ViewOrdersSectionTopRow select{
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    
 }
 

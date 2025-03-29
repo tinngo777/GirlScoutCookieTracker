@@ -9,7 +9,7 @@ import { DesktopSignInBox } from "./SignIn/DesktopSignInBox";
 export const DesktopAuthPage = () => {
 
     const [hasAccount, setHasAccount] = useState(false);
-
+    
     return (
         <>
             <div className='DesktopAuthMainContainer'>

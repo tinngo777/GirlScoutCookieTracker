@@ -2,7 +2,7 @@ import "./Orders.css";
 
 import { NewOrder } from "./NewOrder"
 import { useState, useEffect } from "react";
-import { doc, collection, addDoc, setDoc } from "firebase/firestore";
+import { doc, collection, addDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../auth/AuthContext";
 import { getDocs } from "firebase/firestore";
@@ -10,48 +10,105 @@ import { getDocs } from "firebase/firestore";
 export const Orders = () => {
     const { user, loading, UserData } = useAuth();
 
-    const [OutstandingOrders, setOutstandingOrders] = useState([]);
+    const [OrdersList, setOrdersList] = useState([]);
     const [isViewingAllOrders, setViewingAllOrders] = useState(false);
     const [isViewingUserOrders, setViewingUserOrders] = useState(false);
     const [isPlacingOrder, setIsPlacingOrder] = useState(false);
-
-    const OutstandingOrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "OutstandingOrders");
-
-    const fetchAllOutstandingOrders = async () => {
-        const querySnapshot = await getDocs(OutstandingOrdersRef);
-        const orders = querySnapshot.docs.map(doc => doc.data());
+    const [MemberList, setMemberList] = useState([]);
+    const [SelectedMember, setSelectedMember] = useState();
+    const [ReadiedOrder, setRediedOrder] = useState();
     
-        const AllOrders = orders.filter(order => order.OrderedBy !== "placeholder");
-        setOutstandingOrders(AllOrders);
+
+    const OrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Orders");
+    const MembersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Members");
+
+    const MarkOrderAsCompleted = async (OrderID) => {
+        const SelectedOrderRef = doc(OrdersRef, OrderID);
+
+        await updateDoc(SelectedOrderRef,{
+            ReadyForPickup: true,
+        });
+        
+    }
+
+    const fetchAllOrders = async (Name) => {
+        if(Name === "All Members"){
+            //Fetch all orders
+            const querySnapshot = await getDocs(OrdersRef);
+            const orders = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data() }));
+        
+            const AllOrders = orders.filter(order => order.id !== "PlaceholderOrder");
+            setOrdersList(AllOrders);
+            setSelectedMember(Name)
+        }else{
+            //Fetch selected member's orders
+            const querySnapshot = await getDocs(OrdersRef);
+            const orders = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data() }));
+        
+            const AllOrders = orders
+                .filter(order => order.id !== "PlaceholderOrder")
+                .filter(order => order.PlacedBy === Name);
+            
+            setOrdersList(AllOrders);
+            setSelectedMember(Name)
+        }
+        
     };
 
-    const fetchUsersOutstandingOrders = async () => {
-        const querySnapshot = await getDocs(OutstandingOrdersRef);
+    const fetchUsersOrders = async () => {
+        const querySnapshot = await getDocs(OrdersRef);
         const orders = querySnapshot.docs.map(doc => doc.data());
     
         const userOrders = orders.filter(order => order.PlacedBy === UserData.Name);
-        setOutstandingOrders(userOrders);
+        setOrdersList(userOrders);
     };
+
+    useEffect(() => {
+        const getMemberList = async () => {
+            try{
+                const rolePriority = { "Leader": 2, "Co-leader": 1, "Member": 0 }; 
+
+                const data = await getDocs(MembersRef);
+                const filteredData = data.docs.map(doc => ({id: doc.id, ...doc.data() }));
+                const sortedData = filteredData.sort((a, b) => (rolePriority[b.Role] || 0) - (rolePriority[a.Role] || 0));
+
+                setMemberList(sortedData);
+            }catch (err){
+                console.error(err);
+            }
+        }
+
+        getMemberList();
+    });
 
     return (
         <>
             <div className="OrdersMainContainer">
-                <div className="OrdersButtonBar">
-                    {/* Toggle buttons */}
-                    <button className="OrdersButtons" onClick={() => {setIsPlacingOrder(!isPlacingOrder); setViewingUserOrders(false); setViewingAllOrders(false);}}>Place Order</button>
-                    <button className="OrdersButtons" onClick={() => {fetchUsersOutstandingOrders(); setIsPlacingOrder(false); setViewingUserOrders(!isViewingUserOrders); setViewingAllOrders(false);}}>View Your Orders</button>
-                    <button className="OrdersButtons" onClick={() => {fetchAllOutstandingOrders(); setIsPlacingOrder(false); setViewingUserOrders(false); setViewingAllOrders(!isViewingAllOrders);}}>View All Outstanding Orders</button>
-                </div>
+                {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                    <div className="OrdersButtonBar">
+                        {/* Toggle buttons */}
+                        <button className="OrdersButtons" onClick={() => {setIsPlacingOrder(!isPlacingOrder); setViewingUserOrders(false); setViewingAllOrders(false);}}>Place Order</button>
+                        <button className="OrdersButtons" onClick={() => {fetchUsersOrders(); setIsPlacingOrder(false); setViewingUserOrders(!isViewingUserOrders); setViewingAllOrders(false);}}>View Your Orders</button>
+                        <button className="OrdersButtons" onClick={() => {fetchAllOrders("All Members"); setIsPlacingOrder(false); setViewingUserOrders(false); setViewingAllOrders(!isViewingAllOrders);}}>View All Outstanding Orders</button>
+                    </div>
+                ):(
+                    <div className="OrdersButtonBar">
+                        {/* Toggle buttons */}
+                        <button className="OrdersButtons" onClick={() => {setIsPlacingOrder(!isPlacingOrder); setViewingUserOrders(false); setViewingAllOrders(false);}}>Place Order</button>
+                        <button className="OrdersButtons" onClick={() => {fetchUsersOrders(); setIsPlacingOrder(false); setViewingUserOrders(!isViewingUserOrders); setViewingAllOrders(false);}}>View Your Orders</button>
+                    </div>
+                )}
+                
 
                 {isPlacingOrder && (
-                    <NewOrder/>
+                    <NewOrder setIsPlacingOrder={setIsPlacingOrder}/>
                 )}
 
                 {isViewingUserOrders && ( 
                     <div className="OutstandingOrders">
                         <h3>Your Orders</h3>
                         <ul className="OutstandingOrderUL">
-                            {OutstandingOrders.map((order, index) => (
+                            {OrdersList.map((order, index) => (
                                 <li className="OutstandingOrderBoxes" key={index}>
                                     <p><b>Customer Name:</b> {order.CustomerName}</p>
                                     <p><b>Customer Email:</b> {order.CustomerEmail}</p>
@@ -80,13 +137,31 @@ export const Orders = () => {
                 {isViewingAllOrders && ( 
                     <div className="ViewOrdersSection">
                         {/* Display outstanding orders */}
-                            <h3>All Member Orders</h3>
+                        <div className="ViewOrdersSectionTopRow">
+                            <div>
+                                {SelectedMember === "All Members" ? (
+                                    <p><b>All Member Orders </b></p>
+                                ):(
+                                    <p><b>{SelectedMember}'s Orders </b></p>
+                                )}
+                                
+                            </div>
+                            <div>
+                                <label><b>Sort by member: </b></label>
+                                <select name="MemberSelection" id="MemberSelection" defaultValue="All Members" onChange={(e) =>  fetchAllOrders(e.target.value)}>
+                                    <option value="" disabled>Choose an Option</option>
+                                    <option value="All Members">All members</option>
+                                    {MemberList.map((Member) => (
+                                        <option key={Member.id} value={Member.Name}>{Member.Name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                             <div className="OutstandingOrders">
                                 <ul className="OutstandingOrderUL">
-                                    {OutstandingOrders.map((order, index) => (
-                                        <>
-                                        <div>
-                                            <li className="OutstandingOrderBoxes" key={index}>
+                                    {OrdersList.map((order, index) => (
+                                        <div key={index}>
+                                            <li className="OutstandingOrderBoxes" >
                                                 <p><b>Placed By:</b> {order.PlacedBy}</p>
                                                 <p><b>Customer Name:</b> {order.CustomerName}</p>
                                                 <p><b>Customer Email:</b> {order.CustomerEmail}</p>
@@ -109,10 +184,14 @@ export const Orders = () => {
                                                 <p><b>Trefoils:</b> {order.Trefoils}</p>
                                             </li>
                                             <div className="OrdersMarkReadyBox">
-                                                <p>Mark Ready For Pickup</p>
+                                                <span>Mark Ready For Pickup</span>
+                                                <div>
+                                                    <input type="checkbox" onClick={() => MarkOrderAsCompleted(order.id)}></input>
+                                                </div>
+                                                
                                             </div>
                                         </div>
-                                        </>
+                                        
                                     ))}
                                 </ul>
                             </div>
