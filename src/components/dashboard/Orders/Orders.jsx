@@ -18,16 +18,21 @@ export const Orders = () => {
     const [SelectedMember, setSelectedMember] = useState();
     const [ReadiedOrder, setRediedOrder] = useState();
     
-
     const OrdersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Orders");
     const MembersRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Members");
 
-    const MarkOrderAsCompleted = async (OrderID) => {
+    const MarkOrderAsCompleted = async (OrderID, IsReady) => {
         const SelectedOrderRef = doc(OrdersRef, OrderID);
 
         await updateDoc(SelectedOrderRef,{
-            ReadyForPickup: true,
+            ReadyForPickup: !IsReady,
         });
+
+        setOrdersList(prevOrders =>
+            prevOrders.map(order =>
+                order.id === OrderID ? { ...order, ReadyForPickup: !order.ReadyForPickup } : order
+            )
+        );
         
     }
 
@@ -183,12 +188,11 @@ export const Orders = () => {
                                                 <p><b>Toffee-tastic:</b> {order.ToffeeTastic}</p>
                                                 <p><b>Trefoils:</b> {order.Trefoils}</p>
                                             </li>
-                                            <div className="OrdersMarkReadyBox">
-                                                <span>Mark Ready For Pickup</span>
+                                            <div className={order.ReadyForPickup == true ? "OrdersMarkReadyBoxReadied":"OrdersMarkReadyBox"} >
+                                                {order.ReadyForPickup == true ? (<span>Unmark Ready For Pickup: </span>):(<span>Mark Ready For Pickup: </span>)}
                                                 <div>
-                                                    <input type="checkbox" onClick={() => MarkOrderAsCompleted(order.id)}></input>
+                                                    <input type="checkbox" checked={order.ReadyForPickup} onClick={() => MarkOrderAsCompleted(order.id, order.ReadyForPickup)}></input>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                         
