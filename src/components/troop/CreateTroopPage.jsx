@@ -63,8 +63,7 @@ export const CreateTroopPage = () => {
                 const memberSubcollectionRef = collection(mainDocumentRef, "Members");
                 const requestSubcollectionRef = collection(mainDocumentRef, "MemberRequests");
                 const inventorySubcollectionRef = collection(mainDocumentRef, "Inventory");
-                const outstandingOrdersSubcollectionRef = collection(mainDocumentRef, "OutstandingOrders");
-                const completedOrdersSubcollectionRef = collection(mainDocumentRef, "CompletedOrders"); 
+                const ordersSubcollectionRef = collection(mainDocumentRef, "Orders");
                 const boothRequestsSubcollectionRef = collection(mainDocumentRef, "BoothRequests");
                 const boothsSubcollectionRef = collection(mainDocumentRef, "Booths");
                 
@@ -96,19 +95,11 @@ export const CreateTroopPage = () => {
                     Trefoils: 0,
                 });
     
-                await setDoc(doc(outstandingOrdersSubcollectionRef, "PlaceholderOutstandingOrder"), {
+                await setDoc(doc(ordersSubcollectionRef, "PlaceholderOrder"), {
                     ParentName: "placeholder",
                     OrderedBy: 'placeholder',
                     OrderContents: 'placeholder',
                     OrderDate: '1/1/00'
-                });
-    
-                await setDoc(doc(completedOrdersSubcollectionRef, "PlaceholderCompletedOrder"), {
-                    ParentName: "placeholder",
-                    OrderedBy: 'placeholder',
-                    OrderContents: 'placeholder',
-                    OrderData: '1/1/00',
-                    CompletionDate: '1/1/00',
                 });
 
                 await setDoc(doc(boothRequestsSubcollectionRef, "PlaceholderBoothRequest"), {
