@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  
-import './Settings.css';  
+import "./Settings.css";  
 
-const Settings = () => {  
+export const Settings = () => {  
     const [tshirtSize, setTshirtSize] = useState('');  
     const [otherInfo, setOtherInfo] = useState('');  
 
@@ -16,33 +16,39 @@ const Settings = () => {
     };  
 
     return (  
-        <div className="settings-container">  
+        <div className="MainContainer">  
             <h2>Settings</h2>  
-            <div className="SettingsList">  
-                <label>  
-                    T-shirt Size:  
-                    <select value={tshirtSize} onChange={(e) => setTshirtSize(e.target.value)}>  
-                        <option value="">Select Size</option>  
-                        <option value="S">Small</option>  
-                        <option value="M">Medium</option>  
-                        <option value="L">Large</option>  
-                        <option value="XL">Extra Large</option>  
-                    </select>  
-                </label>  
-                <label>  
-                    Other Info:  
-                    <input  
-                        type="text"  
-                        value={otherInfo}  
-                        onChange={(e) => setOtherInfo(e.target.value)}  
-                        placeholder="Enter other info"  
-                    />  
-                </label>  
-                <button onClick={handleSave}>Save Settings</button>  
-                <button className="leave-troop" onClick={handleLeaveTroop}>Leave Troop</button>  
-            </div>  
+            <ul className="SettingsList">  
+                <li>  
+                    <label>  
+                        T-shirt Size:  
+                        <select value={tshirtSize} onChange={(e) => setTshirtSize(e.target.value)}>  
+                            <option value="">Select Size</option>  
+                            <option value="S">Small</option>  
+                            <option value="M">Medium</option>  
+                            <option value="L">Large</option>  
+                            <option value="XL">Extra Large</option>  
+                        </select>  
+                    </label>  
+                </li>  
+                <li>  
+                    <label>  
+                        Other Info:  
+                        <input  
+                            type="text"  
+                            value={otherInfo}  
+                            onChange={(e) => setOtherInfo(e.target.value)}  
+                            placeholder="Enter other info"  
+                        />  
+                    </label>  
+                </li>  
+                <li>  
+                    <button onClick={handleSave}>Save Settings</button>  
+                </li>  
+                <li>  
+                    <button className="leave-troop" onClick={handleLeaveTroop}>Leave Troop</button>  
+                </li>  
+            </ul>  
         </div>  
     );  
 };  
-
-export default Settings;  
