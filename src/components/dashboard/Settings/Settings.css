@@ -1,4 +1,4 @@
-.MainContainer {  
+.SettingsMainContainer {  
     padding: 20px;  
     background-color: #f9f9f9; /* Light background for contrast */  
     border-radius: 0.8rem; /* Rounded corners */  
@@ -30,7 +30,7 @@
     box-sizing: border-box; /* Include padding in width */  
 }  
 
-.leave-troop {  
+.LeaveTroopButton {  
     background-color: red; /* Red for emphasis */  
     color: white; /* Text color */  
     margin-top: 1rem; /* Space above button */  
@@ -40,7 +40,7 @@
     cursor: pointer; /* Pointer on hover */  
 }  
 
-button {  
+.SaveSettingsButton {  
     background-color: #4CAF50; /* Green for standard button */  
     color: white; /* Text color */  
     border: none; /* No border */  
@@ -50,6 +50,6 @@ button {
     transition: background-color 0.3s; /* Smooth transition */  
 }  
 
-button:hover {  
+.SaveSettingsButton:hover {  
     background-color: #45a049; /* Darker green on hover */  
 }  

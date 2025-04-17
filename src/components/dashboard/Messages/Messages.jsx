@@ -5,6 +5,7 @@ import { useAuth } from "../../auth/AuthContext";
 import { useState, useEffect } from "react";
 import { db } from "../../../config/firebase"
 import { doc, getDocs, collection, updateDoc, deleteDoc, setDoc} from 'firebase/firestore';
+import { UserCheck, UserX } from "../../../assets/Icons"
 
 export const Messages = () => {
     const { user, loading, UserData} = useAuth();
@@ -63,6 +64,7 @@ export const Messages = () => {
 
     const DenyRequest = async () => {
         //delete request
+        
         await deleteDoc(doc(MemberRequestsRef, requestID));
         
         //recall getmember request to refresh page
@@ -79,8 +81,8 @@ export const Messages = () => {
                             <li key={request.id}>
                                 <span><b>{request.Username}</b> is asking to join the troop!</span>
                                 <div>
-                                    <box-icon type='solid' color="green" name='user-check' onClick={() => AcceptRequest(request.id, request.Username)}/>
-                                    <box-icon type='solid' color="red" name='user-x' onClick={() => DenyRequest()}/>
+                                    <UserCheck className="UserCheck" onClick={() => AcceptRequest(request.id, request.Username)}/>
+                                    <UserX className="UserX" onClick={() => DenyRequest()}/>
                                 </div>
                             </li>
                         ))}

@@ -16,14 +16,14 @@ export const Settings = () => {
     };  
 
     return (  
-        <div className="MainContainer">  
+        <div className="SettingsMainContainer">  
             <h2>Settings</h2>  
             <ul className="SettingsList">  
                 <li>  
                     <label>  
                         T-shirt Size:  
                         <select value={tshirtSize} onChange={(e) => setTshirtSize(e.target.value)}>  
-                            <option value="">Select Size</option>  
+                            <option value="" disabled>Select Size</option>  
                             <option value="S">Small</option>  
                             <option value="M">Medium</option>  
                             <option value="L">Large</option>  
@@ -43,10 +43,10 @@ export const Settings = () => {
                     </label>  
                 </li>  
                 <li>  
-                    <button onClick={handleSave}>Save Settings</button>  
+                    <button className='SaveSettingsButton' onClick={handleSave}>Save Settings</button>  
                 </li>  
                 <li>  
-                    <button className="leave-troop" onClick={handleLeaveTroop}>Leave Troop</button>  
+                    <button className="LeaveTroopButton" onClick={handleLeaveTroop}>Leave Troop</button>  
                 </li>  
             </ul>  
         </div>  

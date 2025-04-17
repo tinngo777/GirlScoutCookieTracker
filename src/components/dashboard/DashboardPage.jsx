@@ -15,6 +15,8 @@ import { Messages } from "./Messages/Messages";
 import { Orders } from "./Orders/Orders";
 import { Settings } from "./Settings/Settings";
 
+import { Menu, UserCircle} from "../../assets/Icons"
+
 export const DashboardPage = () => {
     
     const navigate = useNavigate();
@@ -49,14 +51,17 @@ export const DashboardPage = () => {
                             <img src={Cookie_Logo} id="CookieLogo"/>
                             <span>GSC Manager</span>
                         </div>  
-                        <box-icon name='menu' id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}></box-icon> 
+                        {/* <box-icon name='menu' id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}></box-icon>   */}
+                        <div className="ToggleDiv">
+                            <Menu id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}/>
+                        </div>
                     </div>
 
                     <hr></hr>
                     
                     <div id="User">
-                        <box-icon name='user-circle' id="UserIcon" size="md"></box-icon>
-                        
+                        {/* <box-icon name='user-circle' id="UserIcon" size="md"></box-icon> */}
+                        <UserCircle id="UserIcon" size="md"/>
                         <div>
                             <p id="Username"><b>{`${UserData ? UserData.Name : "Username"}`}</b></p>
                             <p id="TroopRole">{`${UserData ? UserData.TroopRole : "TroopRole"}`}</p>

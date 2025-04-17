@@ -67,6 +67,7 @@
     border-radius: 0px 0px .8rem .8rem;
     padding-left: 10px;
     padding-right: 10px;
+    transition: all .5s ease;
 }
 
 .MembersPageEditRoleSection{
@@ -85,6 +86,7 @@
     border-radius: .4rem;
     height: 30px;
     width: 120px;
+    cursor: pointer;
 }
 
 .MemberPageSaveChangesButton:hover{
@@ -101,6 +103,7 @@
     border-radius: .4rem;
     height: 30px;
     width: 120px;
+    cursor: pointer;
 }
 
 .MemberPageRemoveMemberButton:hover{

@@ -15,10 +15,16 @@
     padding-left: 10px;
 }
 
-.MessagesList li div box-icon{
-    font-size: 2rem;
-    margin-left: 10px;
-    margin-right: 10px;
+.MessagesList .UserX{
+    margin-top: 13px;
+    margin-right: 15px;
     cursor: pointer;
+    fill: red;
+}
+
+.MessagesList .UserCheck{
+    margin-right: 15px;
+    cursor: pointer;
+    fill: green;
 }
 
