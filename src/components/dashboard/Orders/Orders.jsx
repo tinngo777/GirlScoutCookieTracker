@@ -180,7 +180,6 @@ export const Orders = () => {
                                     </li>
                                     <div className={order.ReadyForPickup == true ? "OrdersMarkReadyBoxReadied":"OrdersMarkReadyBox"} >
                                         {order.ReadyForPickup == true ? (<span>Ready For Pick-up </span>):(<span>Not Ready For Pick-up </span>)}
-                                        
                                     </div>
                                     <div className={order.PickedUpStatus == true ? "OrdersPickedUp":"OrdersNotPickedUp"} >
                                         {order.PickedUpStatus == true ? (<span>Picked-up: </span>):(<span>Not Picked-up: </span>)}

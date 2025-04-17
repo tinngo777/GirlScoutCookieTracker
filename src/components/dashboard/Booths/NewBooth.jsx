@@ -71,7 +71,7 @@ export const NewBooth = ({ setIsCreatingBooth }) => {
                 <br/>
                 <input
                     id="DayOfBooth"
-                    type="text"
+                    type="date"
                     value={formData.DayOfBooth}
                     onChange={(e) => handleChange(e, "DayOfBooth") }
                 />

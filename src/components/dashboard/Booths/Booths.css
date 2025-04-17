@@ -1,7 +1,90 @@
-.ReportsList li{
+.BoothsButtonBar{
+    display: flex;
+    justify-content: space-between;
     list-style-type: none;
     background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
     height: 50px;
+    line-height: 50px;
     margin: 0.8rem auto;
     border-radius: 0.8rem;
+    text-align: center;
+}
+
+.BoothsButtons{
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 150px;
+    background-color: #4f813f;
+    cursor: pointer;
+}
+
+.BoothsButtons:hover{
+    background-color: #3a5f2e;
+}
+
+.BoothsButtons:active{
+    background-color: #1f3419;
+}
+
+.ViewBoothsTopRow{
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+}
+
+.ViewBoothsTopRow select{
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.BoothsUL{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    transform: translate(-10px);
+}
+
+.BoothsBoxes{
+    background-color: white;
+    list-style: none;
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 200px;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+#DayOfBooth{
+    width: 155px;
+    height: 27px;
+}
+
+.ClaimBoothBox{
+    display: flex;
+    justify-content: space-between;
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 50px;
+    background-color: rgb(116, 108, 108);
+    border-radius: 0px 0px 5px 5px;
+    transform: translate(10px, -10px);
+}
+
+.ClaimBoothBox div{
+    padding-right: 10px;
+    padding-top: 2px
+}
+
+.ClaimBoothBox input{
+    height: 15px;
+    width: 15px;
 }

@@ -50,10 +50,9 @@
     overflow: auto;
     margin: 10px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     display: flex;
     flex-direction: column;
-    
 }
 
 .OutstandingOrderBoxes::-webkit-scrollbar {
@@ -82,7 +81,7 @@
     max-width: 250px;
     max-height: 50px;
     background-color: rgb(116, 108, 108);
-    border-radius: 5px;
+    border-radius: 0px 0px 5px 5px;
     transform: translate(10px, -10px);
 }
 
@@ -103,7 +102,7 @@
     max-width: 250px;
     max-height: 50px;
     background-color: rgb(24, 112, 53);
-    border-radius: 5px;
+    border-radius: 0px 0px 5px 5px;
     transform: translate(10px, -10px);
 }
 
@@ -162,16 +161,13 @@
 .ViewOrdersSectionTopRow{
     display: flex;
     justify-content: space-between;
-    
     line-height: 40px;
-
 }
 
 .ViewOrdersSectionTopRow select{
     height: 40px;
     width: 150px;
     border-radius: 5px;
-    
 }
 
 .ClearFiltersButton{
