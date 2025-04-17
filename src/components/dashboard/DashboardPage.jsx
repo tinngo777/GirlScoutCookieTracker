@@ -1,7 +1,7 @@
 import "./DashboardPage.css";
 import 'boxicons'
 import Cookie_Logo from '../../assets/Cookie_Logo.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { auth, db } from "../../config/firebase";
 import { signOut} from "firebase/auth";
@@ -24,7 +24,10 @@ export const DashboardPage = () => {
     const [NavToggleIsActive, setNavToggleIsActive] = useState(true);
 
     //Page visibilities
-    const [ActiveTab, setActiveTab] = useState("Dashboard");
+    const [ActiveTab, setActiveTab] = useState(() => {
+        // Try to get from localStorage first
+        return localStorage.getItem("ActiveTab") || "Dashboard";
+      });
 
     if (loading) return <p>Loading...</p>;
 
@@ -40,6 +43,11 @@ export const DashboardPage = () => {
             console.error(err);
         }
     }
+
+    // Update localStorage every time the tab changes
+    useEffect(() => {
+        localStorage.setItem("ActiveTab", ActiveTab);
+    }, [ActiveTab]);
 
     return(
         <>
