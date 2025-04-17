@@ -1,4 +1,4 @@
-.NewOrderBox{
+.NewBoothBox{
     background-color: white;
     box-shadow: 4px 4px 4px #adb0ac;
     border-radius: 0.8rem;
@@ -7,15 +7,15 @@
     overflow: auto;
 }
 
-.NewOrderBox input{
+.NewBoothBox input{
     margin-left: 10px;
 }
 
-.NewOrderBox label{
+.NewBoothBox label{
     margin-left: 10px;
 }
 
-#NewOrderButton{
+#NewBoothButton{
     height: 40px;
     text-align: center;
     border: none;
@@ -25,10 +25,10 @@
     margin-left: 10px;
 }
 
-#NewOrderButton:hover{
+#NewBoothButton:hover{
     background-color: #3a5f2e;
 }
 
-#NewOrderButton:active{
+#NewBoothButton:active{
     background-color: #1f3419;
 }
