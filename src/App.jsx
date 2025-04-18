@@ -2,17 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./components/auth/AuthContext";
-
+import { DashboardPage } from "./components/dashboard/DashboardPage";
 import { PrivateRoute } from "./components/privateRoute/PrivateRoute";
 import { AuthPage } from "./components/auth/AuthPage";
-import { DashboardPage } from "./components/dashboard/DashboardPage";  //delete?
-import { MobileDashboardPage } from "./components/dashboard/MobileDashboardPage";  //delete?
 import { NotFoundPage } from "./components/notFound/NotFoundPage";
 import { TroopPage } from "./components/troop/TroopPage";
 import { CreateTroopPage } from "./components/troop/CreateTroopPage";
 import { JoinTroopPage } from "./components/troop/JoinTroopPage";
 import { AwaitJoin } from "./components/awaitJoin/AwaitJoin";
-import DashboardRoute from "./components/dashboard/DashboardRoute";   //add for dashboard route
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -24,7 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/createTroop" element={<PrivateRoute><CreateTroopPage /></PrivateRoute>} />
           <Route path="/joinTroop" element={<PrivateRoute><JoinTroopPage /></PrivateRoute>} />
           <Route path="/awaitJoin" element={<AwaitJoin />} />
-          <Route path="/dashboard" element={<PrivateRoute><DashboardRoute /></PrivateRoute>} />
+          <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </HashRouter>
