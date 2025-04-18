@@ -94,7 +94,7 @@ export const Members = () => {
     return(
         <>
             <div className="MembersPageMainContainer">
-                {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                {UserData.TroopRole === "Leader" || UserData.TroopRole === "Co-leader" ? (
                     <ul className="MembersPageMembersList">
                     {MemberList.map((Member) => (
                         <li key={Member.id} className={EditingMember === Member.Name ? "SelectedMembersPageMembersListItem" : "InactiveMembersPageMembersListItem"}>

@@ -20,6 +20,8 @@
     width: 150px;
     background-color: #4f813f;
     cursor: pointer;
+    color: white;
+    
 }
 
 .BoothsButtons:hover{
@@ -77,6 +79,10 @@
     background-color: rgb(116, 108, 108);
     border-radius: 0px 0px 5px 5px;
     transform: translate(10px, -10px);
+}
+
+.Claimed{
+    background-color: #4f813f;
 }
 
 .ClaimBoothBox div{

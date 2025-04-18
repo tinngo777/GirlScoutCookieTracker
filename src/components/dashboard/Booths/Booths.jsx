@@ -48,8 +48,7 @@ export const Booths = () => {
                 ):(
                     <div className="BoothsButtonBar">
                         {/* Toggle buttons */}
-                        <button className="BoothsButtons" >Place Order</button>
-                        <button className="BoothsButtons" >View Your Orders</button>
+                        <button className="BoothsButtons" onClick={() => {fetchBooths(); setIsCreatingBooth(false); setIsViewingBooths(!isViewingBooths)}}>View Booths</button>
                     </div>
                 )}
                 
@@ -85,11 +84,22 @@ export const Booths = () => {
                                         <p><b>Time: </b> {booth.TimeOfBooth}</p>
                                         <p><b>Claimed By: </b> {booth.ClaimedBy === "" ? ("Nobody") : (booth.ClaimedBy)}</p>
                                     </li>
-                                    <div className="ClaimBoothBox">
-                                        <span>Claim Booth</span>
-                                        <div>
-                                            <input type="checkbox" checked={booth.ClaimedBy === "" ? (false) : (true)} onChange={() => ClaimBooth(booth.id, booth.ClaimedBy === "" ? (UserData.Name) : (""))}></input>
-                                        </div>
+                                    <div className={`ClaimBoothBox ${booth.ClaimedBy === "" ? "Unclaimed" : "Claimed"}`} >
+                                        
+                                        {booth.ClaimedBy === "" || booth.ClaimedBy === UserData.Name ? (
+                                            <>
+                                                {booth.ClaimedBy === "" ? (<span>Claim Booth</span>):(<span>Unclaim Booth</span>)}
+                                                
+                                                <div>
+                                                    <input type="checkbox" checked={booth.ClaimedBy === "" ? (false) : (true)} onChange={() => ClaimBooth(booth.id, booth.ClaimedBy === "" ? (UserData.Name) : (""))}></input>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span>Claimed</span>
+                                            </>
+                                        )}
+                                        
                                     </div>
                                 </div>
                             ))}

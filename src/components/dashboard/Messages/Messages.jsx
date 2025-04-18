@@ -75,7 +75,7 @@ export const Messages = () => {
     return(
         <>
             <div className="MessagesMainContainer">
-                {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                {UserData.TroopRole === "Leader" || UserData.TroopRole === "Co-leader" ? (
                     <ul className="MessagesList">
                         {MemberRequests.map((request) => (
                             <li key={request.id}>

@@ -20,6 +20,7 @@
     width: 150px;
     background-color: #4f813f;
     cursor: pointer;
+    color: white;
 }
 
 .OrdersButtons:hover{

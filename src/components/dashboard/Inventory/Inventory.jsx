@@ -68,12 +68,12 @@ export const Inventory = () => {
         <>
             <div className="IventoryMainContainer">
                 <div className="InventoryButtonBar">
-                    {UserData.TroopRole === "Leader" || UserData.TroopRole ==- "Co-leader" ? (
+                    {UserData.TroopRole === "Leader" || UserData.TroopRole === "Co-leader" ? (
                         <>
                             {IsEditing ? (
-                                <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Stop Editing</b></button>
+                                <button className="InventoryEditButtons" onClick={InventoryEdit}>Stop Editing</button>
                             ) : (
-                                <button className="InventoryEditButtons" onClick={InventoryEdit}><b>Edit Inventory Counts</b></button>
+                                <button className="InventoryEditButtons" onClick={InventoryEdit}>Edit Inventory Counts</button>
                             )}
                         </>
                     ):(
