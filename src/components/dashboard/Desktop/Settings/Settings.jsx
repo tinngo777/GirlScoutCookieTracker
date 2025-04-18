@@ -21,7 +21,7 @@ export const Settings = () => {
             <ul className="SettingsList">  
                 <li>  
                     <label>  
-                        T-shirt Size:  
+                        Scout's T-shirt Size:  
                         <select value={tshirtSize} onChange={(e) => setTshirtSize(e.target.value)}>  
                             <option value="" disabled>Select Size</option>  
                             <option value="S">Small</option>  
@@ -33,12 +33,12 @@ export const Settings = () => {
                 </li>  
                 <li>  
                     <label>  
-                        Other Info:  
+                        Scout's Name:  
                         <input  
                             type="text"  
                             value={otherInfo}  
                             onChange={(e) => setOtherInfo(e.target.value)}  
-                            placeholder="Enter other info"  
+                            
                         />  
                     </label>  
                 </li>  

@@ -1,5 +1,5 @@
 import "./Dashboard.css";
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../../auth/AuthContext";
 
 export const Dashboard = () => {
     const { user, loading, UserData } = useAuth();

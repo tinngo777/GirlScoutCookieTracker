@@ -3,8 +3,8 @@ import "./Orders.css";
 import { NewOrder } from "./NewOrder"
 import { useState, useEffect } from "react";
 import { doc, collection, addDoc, setDoc, updateDoc } from "firebase/firestore";
-import { db } from "../../../config/firebase";
-import { useAuth } from "../../auth/AuthContext";
+import { db } from "../../../../config/firebase";
+import { useAuth } from "../../../auth/AuthContext";
 import { getDocs } from "firebase/firestore";
 
 export const Orders = () => {

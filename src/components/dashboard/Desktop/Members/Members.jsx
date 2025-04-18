@@ -1,8 +1,8 @@
 import "./Members.css";
 
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../../auth/AuthContext";
 import { useState, useEffect } from "react";
-import { db } from "../../../config/firebase"
+import { db } from "../../../../config/firebase"
 import { doc, getDocs, collection, updateDoc, deleteDoc} from 'firebase/firestore';
 
 export const Members = () => {

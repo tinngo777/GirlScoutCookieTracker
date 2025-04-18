@@ -1,22 +1,22 @@
 import "./Inventory.css";
 import 'boxicons'
 
-import AdventurefulsImg from "../../../assets/CookieImages/AdventurefulsImg.png"
-import CaramelChocolateChipImg from "../../../assets/CookieImages/CaramelChocolateChipImg.png"
-import CarameldeLitesImg from "../../../assets/CookieImages/CarameldeLitesImg.png"
-import GirlScoutSmoresImg from "../../../assets/CookieImages/GirlScoutSmoresImg.png"
-import LemonadesImg from "../../../assets/CookieImages/LemonadesImg.png"
-import LemonUpsImg from "../../../assets/CookieImages/LemonUpsImg.png"
-import PeanutButterPattiesImg from "../../../assets/CookieImages/PeanutButterPattiesImg.png"
-import PeanutButterSandwichImg from "../../../assets/CookieImages/PeanutButterSandwichImg.png"
-import ThinMintsImg from "../../../assets/CookieImages/ThinMintsImg.png"
-import ToastYayImg from "../../../assets/CookieImages/ToastYayImg.png" 
-import ToffeetasticImg from "../../../assets/CookieImages/ToffeetasticImg.png"
-import TrefoilsImg from "../../../assets/CookieImages/TrefoilsImg.png"
+import AdventurefulsImg from "../../../../assets/CookieImages/AdventurefulsImg.png"
+import CaramelChocolateChipImg from "../../../../assets/CookieImages/CaramelChocolateChipImg.png"
+import CarameldeLitesImg from "../../../../assets/CookieImages/CarameldeLitesImg.png"
+import GirlScoutSmoresImg from "../../../../assets/CookieImages/GirlScoutSmoresImg.png"
+import LemonadesImg from "../../../../assets/CookieImages/LemonadesImg.png"
+import LemonUpsImg from "../../../../assets/CookieImages/LemonUpsImg.png"
+import PeanutButterPattiesImg from "../../../../assets/CookieImages/PeanutButterPattiesImg.png"
+import PeanutButterSandwichImg from "../../../../assets/CookieImages/PeanutButterSandwichImg.png"
+import ThinMintsImg from "../../../../assets/CookieImages/ThinMintsImg.png"
+import ToastYayImg from "../../../../assets/CookieImages/ToastYayImg.png" 
+import ToffeetasticImg from "../../../../assets/CookieImages/ToffeetasticImg.png"
+import TrefoilsImg from "../../../../assets/CookieImages/TrefoilsImg.png"
 
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../../auth/AuthContext";
 import { useState, useEffect } from "react";
-import { db } from "../../../config/firebase"
+import { db } from "../../../../config/firebase"
 import { doc, getDoc, collection, updateDoc, deleteDoc, setDoc} from 'firebase/firestore';
 
 export const Inventory = () => {
