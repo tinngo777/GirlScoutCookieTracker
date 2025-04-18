@@ -12,14 +12,32 @@ export const Booths = () => {
     const [isCreatingBooth, setIsCreatingBooth] = useState(false);
     const [isViewingBooths, setIsViewingBooths] = useState(false);
     const [boothsList, setBoothsList] = useState([]);
+    const [claimFilter, setClaimFilter] = useState("All Booths");
 
     const BoothsRef = collection(db, "Troops", `Troop#${UserData.TroopNumber}`, "Booths");
 
-    const fetchBooths = async () => {
+    const fetchAndFilterBooths = async (filter) => {
+        console.log("filter = " + filter);
+        //Set Variables
+        setClaimFilter(filter);
+
+        //Fetch all booths
         const querySnapshot = await getDocs(BoothsRef);
         let booths = querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data() }));
         booths = booths.filter(booths => booths.id !== "PlaceholderBooth");
-        setBoothsList(booths);
+
+        //Filter List by timeframe and name
+        const filteredBooths = booths.filter(booths => {
+            if(filter === "All Booths"){
+                return true;
+            }else if(filter === "Unclaimed"){
+                return booths.ClaimedBy === "";
+            }else{
+                return booths.ClaimedBy !== "";
+            }
+        });
+
+        setBoothsList(filteredBooths);
     }
 
     const ClaimBooth = async (id, name) => {
@@ -43,12 +61,12 @@ export const Booths = () => {
                     <div className="BoothsButtonBar">
                         {/* Toggle buttons */}
                         <button className="BoothsButtons" onClick={() => {setIsCreatingBooth(!isCreatingBooth); setIsViewingBooths(false)}}>Create Booth Listing</button>
-                        <button className="BoothsButtons" onClick={() => {fetchBooths(); setIsCreatingBooth(false); setIsViewingBooths(!isViewingBooths)}}>View Booths</button>
+                        <button className="BoothsButtons" onClick={() => {fetchAndFilterBooths("All Booths"); setIsCreatingBooth(false); setIsViewingBooths(!isViewingBooths)}}>View Booths</button>
                     </div>
                 ):(
                     <div className="BoothsButtonBar">
                         {/* Toggle buttons */}
-                        <button className="BoothsButtons" onClick={() => {fetchBooths(); setIsCreatingBooth(false); setIsViewingBooths(!isViewingBooths)}}>View Booths</button>
+                        <button className="BoothsButtons" onClick={() => {fetchAndFilterBooths("All Booths"); setIsCreatingBooth(false); setIsViewingBooths(!isViewingBooths)}}>View Booths</button>
                     </div>
                 )}
                 
@@ -63,16 +81,13 @@ export const Booths = () => {
                             <p><b>Booths</b></p>
                             <div>
                                 <label><b>Sort: </b></label>
-                                <select name="ClaimedSelection" id="ClaimedSelection" >
+                                <select name="ClaimedSelection" id="ClaimedSelection" value={claimFilter} onChange={(e) =>  fetchAndFilterBooths(e.target.value)} >
                                     <option value="" disabled>Choose an Option</option>
                                     <option value="Claimed">Claimed Booths</option>
                                     <option value="Unclaimed">Unclaimed Booths</option>
                                     <option value="All Booths">All Booths</option>
                                     
                                 </select>
-                            </div>
-                            <div>
-                                <button className="ClearFiltersButton" >Clear Filters</button>
                             </div>
                         </div>
                         <ul className="BoothsUL">
