@@ -1,0 +1,146 @@
+
+@media screen and (max-width: 768px) {
+.OrdersButtonBar {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically for mobile */
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
+    height: auto; /* Adjust height for mobile */
+    line-height: 50px;
+    margin: 0.8rem auto;
+    border-radius: 0.8rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.OrdersButtons {
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 100%; /* Full width for mobile buttons */
+    background-color: #4f813f;
+    cursor: pointer;
+    color: white;
+}
+
+.OrdersButtons:hover {
+    background-color: #3a5f2e;
+}
+
+.OrdersButtons:active {
+    background-color: #1f3419;
+}
+
+.ViewOrdersSection {
+    margin: 0;
+}
+
+.OutstandingOrderUL {
+    display: flex;
+    flex-direction: column; /* Stack items vertically for mobile */
+    padding: 0;
+    margin: 0;
+}
+
+.OutstandingOrderBoxes {
+    background-color: white;
+    list-style: none;
+    min-width: 100%; /* Full width on mobile */
+    max-width: 100%;
+    max-height: 200px;
+    overflow: auto;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.OutstandingOrderBoxes::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 5px;
+}
+
+.OutstandingOrderBoxes::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.OutstandingOrderBoxes::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.OutstandingOrderBoxes::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.OrdersMarkReadyBox,
+.OrdersMarkReadyBoxReadied,
+.OrdersPickedUp,
+.OrdersNotPickedUp {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 50px;
+    margin-top: 10px;
+    transform: translate(0);
+    border-radius: 5px;
+}
+
+.OrdersMarkReadyBox div,
+.OrdersMarkReadyBoxReadied div,
+.OrdersPickedUp div,
+.OrdersNotPickedUp div {
+    padding-right: 10px;
+    padding-top: 2px;
+}
+
+.OrdersMarkReadyBox input,
+.OrdersMarkReadyBoxReadied input,
+.OrdersPickedUp input,
+.OrdersNotPickedUp input {
+    height: 15px;
+    width: 15px;
+}
+
+.ViewOrdersSectionTopRow {
+    display: flex;
+    flex-direction: column; /* Stack select and button vertically */
+    justify-content: space-between;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+.ViewOrdersSectionTopRow select {
+    height: 40px;
+    width: 100%; /* Full width select on mobile */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ClearFiltersButton {
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    width: 100%; /* Full width on mobile */
+    cursor: pointer;
+    background-color: red;
+}
+
+.ClearFiltersButton:hover {
+    background-color: rgb(185, 2, 2);
+}
+
+.ClearFiltersButton:active {
+    background-color: rgb(130, 2, 2);
+}
+}

@@ -1,4 +1,4 @@
-/* Mobile Version Styles */
+@media screen and (max-width: 768px) {
 .InventoryButtonBar {
     display: block;
     margin: 1rem auto;
@@ -67,4 +67,5 @@ span {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
 }
