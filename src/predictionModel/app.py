@@ -7,19 +7,26 @@ import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 import json
 import os
+import tempfile
 
-firebase_credentials_path = "/secrets/firebase-credentials.json"
+# Load Firebase credentials from environment variable (Render secret)
+firebase_credentials_json = os.environ.get("FIREBASE_CREDENTIALS_JSON")
+if not firebase_credentials_json:
+    raise ValueError("Missing FIREBASE_CREDENTIALS_JSON environment variable")
+
+# Write credentials to a temporary file
+with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.json') as f:
+    f.write(firebase_credentials_json)
+    firebase_credentials_path = f.name
+
+# Initialize Firebase
 cred = credentials.Certificate(firebase_credentials_path)
 initialize_app(cred)
+db = firestore.client()
 
-
+# Initialize Flask app
 app = Flask(__name__)
 CORS(app)
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate("girlscoutcookietracker-a26cf-firebase-adminsdk-ozpv8-a9f522f92b.json")
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
 
 # Cookie columns to expect
 cookie_columns = [col.strip() for col in [
@@ -68,10 +75,8 @@ def predict():
         if not troop_number:
             return jsonify({"error": "TroopNumber is required"}), 400
 
-        # Train model for specific troop
         model = train_model(troop_number)
 
-        # Remove troop number from input before prediction
         input_data.pop("TroopNumber", None)
         input_df = pd.DataFrame([input_data])
 
@@ -81,10 +86,12 @@ def predict():
         input_df = input_df[cookie_columns]
 
         prediction = model.predict(input_df)[0]
+        print(f"Prediction for Troop #{troop_number}: {int(prediction)} total boxes")
         return jsonify({"predicted_total": int(prediction)})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+# Run the app
 if __name__ == "__main__":
     app.run(debug=True)
