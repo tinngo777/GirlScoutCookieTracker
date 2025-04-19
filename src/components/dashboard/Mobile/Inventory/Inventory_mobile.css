@@ -1,0 +1,70 @@
+/* Mobile Version Styles */
+.InventoryButtonBar {
+    display: block;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    height: auto;
+    box-shadow: none;
+    text-align: left;
+}
+
+.InventoryEditButtons {
+    width: 100%;
+    margin: 5px 0;
+    height: 40px;
+    background-color: #4f813f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.InventoryEditButtons:hover {
+    background-color: #3a5f2e;
+}
+
+.InventoryEditButtons:active {
+    background-color: #1f3419;
+}
+
+.InventoryList {
+    max-height: 80vh;
+    overflow: auto;
+    padding: 0 1rem;
+}
+
+.InventoryList li {
+    display: flex; /*new code*/
+    align-items: center; /*new code*/
+    gap: 10px; /*new code*/
+    width: 100%;
+    margin: 1rem 0;
+    height: auto;
+    text-align: left;
+    background-color: white;
+    box-shadow: 4px 4px 4px #adb0ac;
+    border-radius: 0.8rem;
+}
+
+span {
+    padding-left: 10px;
+}
+
+.InventoryList img {
+    border-radius: 20px;
+    max-width: 30px;
+    max-height: 30px;
+    margin: 5px;
+}
+
+.InventoryInput {
+    height: 30px;
+    width: 50px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
