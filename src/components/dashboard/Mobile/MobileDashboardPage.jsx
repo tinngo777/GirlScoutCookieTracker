@@ -12,7 +12,7 @@ import { Menu, UserCircle} from "../../../assets/Icons"
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Inventory } from "./Inventory/Inventory";
 import { Booths } from "./Booths/Booths";
-import { Members} from "./Members/Members";
+import { Members} from "./Members/MobileMembers";
 import { Messages } from "./Messages/Messages";
 import { Orders } from "./Orders/Orders";
 import { Settings } from "./Settings/Settings";
