@@ -3,7 +3,7 @@ import "./Settings.css";
 
 export const Settings = () => {  
     const [tshirtSize, setTshirtSize] = useState('');  
-    const [otherInfo, setOtherInfo] = useState('');  
+    const [scoutName, setScoutName] = useState('');  
 
     const handleLeaveTroop = () => {  
         // Logic to leave the troop  
@@ -11,8 +11,7 @@ export const Settings = () => {
     };  
 
     const handleSave = () => {  
-        // Logic to save settings  
-        alert(`Saved: Size - ${tshirtSize}, Info - ${otherInfo}`);  
+        
     };  
 
     return (  
@@ -34,12 +33,7 @@ export const Settings = () => {
                 <li>  
                     <label>  
                         Scout's Name:  
-                        <input  
-                            type="text"  
-                            value={otherInfo}  
-                            onChange={(e) => setOtherInfo(e.target.value)}  
-                            
-                        />  
+                        <input type="text" onChange={(e) => setScoutName(e.target.value)}/>  
                     </label>  
                 </li>  
                 <li>  

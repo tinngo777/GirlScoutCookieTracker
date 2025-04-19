@@ -16,7 +16,7 @@
 }  
 
 /* Button Styles */  
-.BoothsButtonBar {  
+.MobileBoothsButtonBar {  
     display: flex;  
     justify-content: center;  
     gap: 1rem;  

@@ -58,7 +58,7 @@ export const Booths = () => {
             <div className="BoothsHeader">  
                 <h2>Booth Management</h2>  
                 {UserData.TroopRole === "Leader" || UserData.TroopRole === "Co-leader" ? (  
-                    <div className="BoothsButtonBar">  
+                    <div className="MobileBoothsButtonBar">  
                         <button   
                             className={`BoothsButton ${isCreatingBooth ? "active" : ""}`}   
                             onClick={() => {  
