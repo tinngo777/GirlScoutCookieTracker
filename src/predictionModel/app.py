@@ -70,24 +70,43 @@ def train_model(troop_number):
 def predict():
     try:
         input_data = request.json
-
         troop_number = input_data.get("TroopNumber")
         if not troop_number:
             return jsonify({"error": "TroopNumber is required"}), 400
 
-        model = train_model(troop_number)
+        # Fetch orders
+        orders_ref = db.collection("Troops").document(f"Troop#{troop_number}").collection("Orders")
+        docs = orders_ref.stream()
+        orders_data = {doc.id: doc.to_dict() for doc in docs}
 
-        input_data.pop("TroopNumber", None)
-        input_df = pd.DataFrame([input_data])
+        if not orders_data:
+            return jsonify({"error": "No order data found"}), 400
+
+        orders_df = pd.json_normalize(orders_data.values())
 
         for col in cookie_columns:
-            if col not in input_df:
-                input_df[col] = 0
-        input_df = input_df[cookie_columns]
+            orders_df[col] = (
+                orders_df.get(col, 0)
+                .fillna("0")
+                .astype(str)
+                .str.replace(r"[^\d]", "", regex=True)
+                .replace("", "0")
+                .astype(int)
+            )
 
-        prediction = model.predict(input_df)[0]
-        print(f"Prediction for Troop #{troop_number}: {int(prediction)} total boxes")
-        return jsonify({"predicted_total": int(prediction)})
+        orders_df["TotalBoxes"] = orders_df[cookie_columns].sum(axis=1)
+
+        # Train and predict on average cookie order
+        model = DecisionTreeRegressor(random_state=10, max_depth=11)
+        X = orders_df[cookie_columns]
+        y = orders_df["TotalBoxes"]
+        model.fit(X, y)
+
+        # Use average of past cookies as input
+        avg_input = pd.DataFrame([X.mean()])
+
+        predicted_total = model.predict(avg_input)[0]
+        return jsonify({"predicted_total": int(predicted_total)})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
