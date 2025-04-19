@@ -111,6 +111,10 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+@app.route('/', methods=['GET', 'HEAD'])
+def home():
+    return "Flask backend is running.", 200
+
 # Run the app
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Use Render's port if available
