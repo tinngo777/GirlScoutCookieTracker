@@ -27,7 +27,7 @@ export const DesktopDashboardPage = () => {
     const [ActiveTab, setActiveTab] = useState(() => {
         // Try to get from localStorage first
         return localStorage.getItem("ActiveTab") || "Dashboard";
-      });
+    });
 
     if (loading) return <p>Loading...</p>;
 
@@ -61,14 +61,13 @@ export const DesktopDashboardPage = () => {
                         </div>  
                         {/* <box-icon name='menu' id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}></box-icon>   */}
                         <div className="ToggleDiv">
-                            <Menu id="NavToggle" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}/>
+                            <Menu id="NavToggle" width="30" height="30" onClick={NavToggle} style={NavToggleIsActive ? {left: "90%"} : {}}/>
                         </div>
                     </div>
 
                     <hr></hr>
                     
                     <div id="User">
-                        {/* <box-icon name='user-circle' id="UserIcon" size="md"></box-icon> */}
                         <UserCircle id="UserIcon" size="md"/>
                         <div>
                             <p id="Username"><b>{`${UserData ? UserData.Name : "Username"}`}</b></p>
@@ -171,7 +170,6 @@ export const DesktopDashboardPage = () => {
                 </div>
 
                 <div className = {`RightContainer ${NavToggleIsActive ? 'active' : 'inactive'}`}>
-                    
                     {ActiveTab === "Dashboard" && <Dashboard/>} 
                     {ActiveTab === "Inventory" && <Inventory/>} 
                     {ActiveTab === "Booths" && <Booths/>} 
@@ -180,7 +178,6 @@ export const DesktopDashboardPage = () => {
                     {ActiveTab === "Orders" && <Orders/>} 
                     {ActiveTab === "Settings" && <Settings/>} 
                 </div>
-                
                 
             </div>
         </>

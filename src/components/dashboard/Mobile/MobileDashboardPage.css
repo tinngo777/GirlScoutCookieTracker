@@ -1,68 +1,76 @@
-.mobile-dashboard-container {
+.MobileNavigationBar{
+    min-width: 100%;
+    min-height: 5vh;
     background-color: white;
-    padding: 1rem;
-    height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    background-image: url("../../../assets/Cookie_Background.png");
-    background-repeat: repeat;
-    background-size: contain;
-    min-height: 100vh;
-    padding: 1rem;
-  }
-  
-  .mobile-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.MobileMenuButtonDiv{
     display: flex;
     align-items: center;
-    text-align: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .cookie-logo {
-    width: 40px;
-    height: auto;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .mobile-user-info {
+}
+
+.MobileMenuButton{
+    cursor: pointer;
+}
+
+.MobileNavListBox {
+    position: fixed;
+    width: 30%;
+    right: 0;
+    height: 95vh;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+    padding-left: 10px;
+    border-radius: .8em 0 0 .8em ;
+}
+
+.MobileNavListBox.Inactive {
+    transform: translateX(100%);
+}
+
+.MobileNavListBox.Active {
+    transform: translateX(0%);
+}
+
+.MobileNavListBox ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 95%;
+    margin: 0.8rem auto;
+    line-height: 40px;
+    border-radius: 0.8rem;
+}
+
+.MobileNavListBox ul li span {
+    padding-left: 10px;
+}
+
+.MobileNavListBox ul li a{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  
-  .user-icon {
-    font-size: 2rem;
-  }
-  
-  .user-details p {
-    margin: 0;
-  }
-  
-  .mobile-nav-buttons {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .mobile-nav-buttons button {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 10px;
-    background-color: #d3d3d3;
-    color: #333;
-    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.MobileNavListBox ul li a.active{
     font-weight: bold;
-  }
-  
-  .logout-btn {
-    background-color: #d9534f;
-  }
-  
+    color: green;
+}
+
+.MobileNavListBox ul li a box-icon{
+    min-width: 30px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    pointer-events: none;
+}
+
+.MobileTabsContainer{
+    padding: 10px;
+}

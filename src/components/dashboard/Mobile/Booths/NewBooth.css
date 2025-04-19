@@ -1,0 +1,90 @@
+.NewBoothContainer {  
+    padding: 1rem;  
+    max-width: 100%;  
+}  
+
+.NewBoothBox {  
+    background-color: white;  
+    border-radius: 0.8rem;  
+    padding: 1.5rem;  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  
+    max-width: 500px;  
+    margin: 0 auto;  
+}  
+
+.NewBoothBox h3 {  
+    margin-top: 0;  
+    margin-bottom: 1.5rem;  
+    color: #2c3e50;  
+    text-align: center;  
+}  
+
+.FormGroup {  
+    margin-bottom: 1.5rem;  
+}  
+
+.FormGroup label {  
+    display: block;  
+    margin-bottom: 0.5rem;  
+    font-weight: 500;  
+    color: #2c3e50;  
+}  
+
+.FormGroup input {  
+    width: 100%;  
+    padding: 0.75rem;  
+    border: 1px solid #ddd;  
+    border-radius: 0.5rem;  
+    font-size: 1rem;  
+    box-sizing: border-box;  
+}  
+
+.ButtonGroup {  
+    display: flex;  
+    justify-content: space-between;  
+    margin-top: 2rem;  
+}  
+
+.SubmitButton, .CancelButton {  
+    padding: 0.75rem 1.5rem;  
+    border: none;  
+    border-radius: 0.5rem;  
+    font-size: 1rem;  
+    font-weight: 500;  
+    cursor: pointer;  
+    transition: all 0.2s;  
+}  
+
+.SubmitButton {  
+    background-color: #4f813f;  
+    color: white;  
+}  
+
+.SubmitButton:hover {  
+    background-color: #3a5f2e;  
+}  
+
+.CancelButton {  
+    background-color: #f0f0f0;  
+    color: #333;  
+}  
+
+.CancelButton:hover {  
+    background-color: #e0e0e0;  
+}  
+
+/* Mobile responsiveness */  
+@media (max-width: 600px) {  
+    .NewBoothBox {  
+        padding: 1rem;  
+    }  
+    
+    .ButtonGroup {  
+        flex-direction: column;  
+        gap: 0.5rem;  
+    }  
+    
+    .SubmitButton, .CancelButton {  
+        width: 100%;  
+    }  
+}  
