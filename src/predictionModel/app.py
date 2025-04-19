@@ -1,12 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, initialize_app
 import pandas as pd
 import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 import json
 import os
+
+firebase_credentials_path = "/secrets/firebase-credentials.json"
+cred = credentials.Certificate(firebase_credentials_path)
+initialize_app(cred)
+
 
 app = Flask(__name__)
 CORS(app)
