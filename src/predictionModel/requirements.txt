@@ -1,7 +1,8 @@
 Flask==2.0.1
-flask-cors==3.1.1
+flask-cors==5.0.1
 firebase-admin
 pandas
 numpy
 scikit-learn
 gunicorn==20.1.0
+werkzeug==2.0.1
