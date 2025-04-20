@@ -14,7 +14,7 @@ export const Dashboard = () => {
 
             try {
                 const response = await axios.post(
-                    "https://girlscoutcookietracker.onrender.com",
+                    "https://girlscoutcookietracker.onrender.com/predict",
                     {
                         TroopNumber: UserData.TroopNumber
                     }
