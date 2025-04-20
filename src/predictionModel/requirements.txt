@@ -5,3 +5,4 @@ pandas
 numpy
 scikit-learn
 gunicorn==20.1.0
+werkzeug==1.0.1
