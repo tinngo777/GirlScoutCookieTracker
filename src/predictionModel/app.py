@@ -26,7 +26,7 @@ db = firestore.client()
 # Initialize Flask app
 app = Flask(__name__)
 
-CORS(app, resources={r"/predict": {"origins": "*"}})
+CORS(app, resources={r"/predict": {"origins": "https://girlscoutcookietracker.com"}})
 
 # Cookie columns expected
 cookie_columns = [col.strip() for col in [
