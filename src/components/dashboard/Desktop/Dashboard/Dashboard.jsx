@@ -6,6 +6,7 @@ import axios from "axios";
 export const Dashboard = () => {
     const { user, loading, UserData } = useAuth();
     const [statusMessage, setStatusMessage] = useState(null);
+    const [predictedTotal, setPredictedTotal] = useState(null); // ✅ New state
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -27,8 +28,9 @@ export const Dashboard = () => {
 
                 console.log("Prediction API response:", response.data); // 🔍 Debug log
 
-                if (response.data.message) {
-                    setStatusMessage(response.data.message);
+                if (response.data.predicted_total !== undefined) {
+                    setPredictedTotal(response.data.predicted_total);
+                    setStatusMessage("Prediction fetched successfully.");
                 } else {
                     setError("Unexpected response from server.");
                 }
@@ -48,10 +50,13 @@ export const Dashboard = () => {
             </div>
 
             <div className="PredictionContainer">
-                {statusMessage ? (
-                    <p><b>Status:</b> {statusMessage}</p>
-                ) : error ? (
+                {error ? (
                     <p style={{ color: "red" }}>{error}</p>
+                ) : predictedTotal !== null ? (
+                    <>
+                        <p><b>Status:</b> {statusMessage}</p>
+                        <p><b>Predicted Total Cookies Sold:</b> {predictedTotal}</p>
+                    </>
                 ) : (
                     <p>Loading prediction...</p>
                 )}
