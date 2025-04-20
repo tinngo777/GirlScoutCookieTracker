@@ -14,10 +14,15 @@ export const Dashboard = () => {
 
             try {
                 const response = await axios.post(
-                    "https://girlscoutcookietracker.onrender.com/predict",
-                    {
-                        TroopNumber: UserData.TroopNumber
+                  "https://girlscoutcookietracker.onrender.com/predict",
+                  {
+                    TroopNumber: UserData.TroopNumber
+                  },
+                  {
+                    headers: {
+                      "Content-Type": "application/json"
                     }
+                  }
                 );
 
                 console.log("Prediction API response:", response.data); // 🔍 Debug log
