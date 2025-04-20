@@ -47,16 +47,23 @@ def predict():
         if not troop_number:
             return jsonify({"error": "TroopNumber is required"}), 400
 
-        orders_ref = db.collection("Troops").document(f"Troop#{troop_number}").collection("Orders")
-        docs = list(orders_ref.stream())
-        if not docs:
-            return jsonify({"error": f"No order data found for Troop#{troop_number}"}), 400
+        # Check if troop document exists
+        troop_doc = db.collection("Troops").document(f"Troop#{troop_number}").get()
+        if not troop_doc.exists:
+            return jsonify({"error": "Invalid TroopNumber"}), 400
 
-        return jsonify({"message": "Everything looks fine."}), 200
+        # Check if Orders subcollection has any documents
+        orders_ref = db.collection("Troops").document(f"Troop#{troop_number}").collection("Orders")
+        orders_docs = list(orders_ref.stream())
+        if not orders_docs:
+            return jsonify({"error": "No orders found for this troop"}), 400
+
+        # ✅ All checks passed
+        return jsonify({"message": "Okay"}), 200
 
     except Exception as e:
-        print(f"Prediction error: {e}")
-        return jsonify({"error": str(e)}), 400
+        print(f"Error during troop validation: {e}")
+        return jsonify({"error": "Server error"}), 500
 
 @app.route('/', methods=['GET', 'HEAD'])
 def home():
