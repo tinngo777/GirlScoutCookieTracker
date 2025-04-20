@@ -62,7 +62,7 @@ export const Messages = () => {
         
     }
 
-    const DenyRequest = async () => {
+    const DenyRequest = async (requestID) => {
         //delete request
         
         await deleteDoc(doc(MemberRequestsRef, requestID));
