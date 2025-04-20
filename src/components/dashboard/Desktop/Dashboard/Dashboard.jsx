@@ -5,13 +5,13 @@ import axios from "axios";
 
 export const Dashboard = () => {
     const { user, loading, UserData } = useAuth();
-    const [predictedTotal, setPredictedTotal] = useState(null);
+    const [statusMessage, setStatusMessage] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchPrediction = async () => {
             if (!UserData?.TroopNumber) return;
-        
+
             try {
                 const response = await axios.post(
                     "https://girlscoutcookietracker.onrender.com/predict",
@@ -19,13 +19,13 @@ export const Dashboard = () => {
                         TroopNumber: UserData.TroopNumber
                     }
                 );
-        
-                console.log("Prediction API response:", response.data);  // 🔍 Debug log
-        
-                if (response.data.predicted_total !== undefined) {
-                    setPredictedTotal(response.data.predicted_total);
+
+                console.log("Prediction API response:", response.data); // 🔍 Debug log
+
+                if (response.data.message) {
+                    setStatusMessage(response.data.message);
                 } else {
-                    setError("No prediction data returned.");
+                    setError("Unexpected response from server.");
                 }
             } catch (err) {
                 console.error("Prediction error:", err);
@@ -43,8 +43,8 @@ export const Dashboard = () => {
             </div>
 
             <div className="PredictionContainer">
-                {predictedTotal !== null ? (
-                    <p><b>Predicted Total Boxes:</b> {predictedTotal}</p>
+                {statusMessage ? (
+                    <p><b>Status:</b> {statusMessage}</p>
                 ) : error ? (
                     <p style={{ color: "red" }}>{error}</p>
                 ) : (
