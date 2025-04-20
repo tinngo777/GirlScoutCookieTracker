@@ -11,7 +11,7 @@ export const Dashboard = () => {
     useEffect(() => {
         const fetchPrediction = async () => {
             if (!UserData?.TroopNumber) return;
-
+        
             try {
                 const response = await axios.post(
                     "https://girlscoutcookietracker.onrender.com/predict",
@@ -19,7 +19,9 @@ export const Dashboard = () => {
                         TroopNumber: UserData.TroopNumber
                     }
                 );
-
+        
+                console.log("Prediction API response:", response.data);  // 🔍 Debug log
+        
                 if (response.data.predicted_total !== undefined) {
                     setPredictedTotal(response.data.predicted_total);
                 } else {
