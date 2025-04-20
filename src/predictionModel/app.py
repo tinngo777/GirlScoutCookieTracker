@@ -70,6 +70,8 @@ def train_model(troop_number):
 def predict():
     try:
         input_data = request.json
+        print(f"Received input: {input_data}")  # 🔍 Debug log
+
         troop_number = input_data.get("TroopNumber")
         if not troop_number:
             return jsonify({"error": "TroopNumber is required"}), 400
@@ -78,6 +80,8 @@ def predict():
         orders_ref = db.collection("Troops").document(f"Troop#{troop_number}").collection("Orders")
         docs = orders_ref.stream()
         orders_data = {doc.id: doc.to_dict() for doc in docs}
+
+        print(f"Fetched orders: {orders_data}")  # 🔍 Debug log
 
         if not orders_data:
             return jsonify({"error": "No order data found"}), 400
@@ -96,19 +100,21 @@ def predict():
 
         orders_df["TotalBoxes"] = orders_df[cookie_columns].sum(axis=1)
 
-        # Train and predict on average cookie order
-        model = DecisionTreeRegressor(random_state=10, max_depth=11)
+        # Train and predict
         X = orders_df[cookie_columns]
         y = orders_df["TotalBoxes"]
+        model = DecisionTreeRegressor(random_state=10, max_depth=11)
         model.fit(X, y)
 
-        # Use average of past cookies as input
         avg_input = pd.DataFrame([X.mean()])
-
         predicted_total = model.predict(avg_input)[0]
+
+        print(f"Predicted total: {predicted_total}")  # 🔍 Debug log
+
         return jsonify({"predicted_total": int(predicted_total)})
 
     except Exception as e:
+        print(f"Prediction error: {e}")  # 🔍 Debug log
         return jsonify({"error": str(e)}), 400
 
 @app.route('/', methods=['GET', 'HEAD'])
